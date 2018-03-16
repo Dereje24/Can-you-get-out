@@ -42,21 +42,31 @@ var question_list = [
 db.Question.remove({}, function(err, questions){
   console.log('removed all questions');
 
-  question_list.forEach(function (questionData) {
-    var question = new db.Question({
-      category: questionData.category,
-      type: questionData.type,
-      difficulty: questionData.difficulty,
-      question: questionData.question,
-      correct_answer: questionData.correct_answer,
-      incorrect_answers: questionData.incorrect_answers
-    });
-    question.save( function(err) {
-      if(err) {
-        console.log("save error");
+    db.Question.create(question_list, (function(err, allQuestions) {
+      if (err) {
+        console.log(err);
       } else {
-        process.exit(0);
+        console.log(allQuestions);
+        process.exit(0)
       };
-    });
+    }));
   });
-});
+
+
+    // var question = new db.Question({
+    //   category: questionData.category,
+    //   type: questionData.type,
+    //   difficulty: questionData.difficulty,
+    //   question: questionData.question,
+    //   correct_answer: questionData.correct_answer,
+    //   incorrect_answers: questionData.incorrect_answers
+    // });
+    // question.save(function(err) {
+    //   if(err) {
+    //     console.log("save error");
+    //   } else {
+    //     console.log("Saved: ", question._id)
+    //     process.exit(0);
+    //   };
+    // });
+    // console.log(questionData.correct_answer)
