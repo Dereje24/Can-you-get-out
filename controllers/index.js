@@ -1,3 +1,5 @@
 module.exports = {
-  questions: require('./questionsController');
+  questions: require('./questionsController'),
+  quizes: require('./quizController'),
+  answers: require('./answersController')
 };

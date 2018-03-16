@@ -21,6 +21,40 @@ app.get('/', function homepage(req, res) {
 
 //JSON API ENDPOINTS
 
+<<<<<<< HEAD
+//QUIZ ENDPOINTS
+app.get('/api/quiz', controller.quizes.index);
+
+app.post('/api/quiz', controller.quizes.create); //admins only
+
+app.get('/api/quiz/:id', controller.quizes.show); //admins only
+
+app.put('/api/quiz/:id', controller.quizes.update); //admins only
+
+app.delete('/api/quiz/:id', controller.quizes.destroy); //admins only
+
+//QUESTIONS ENDPOINTS
+app.get('/api/questions', controller.questions.index); // admins only
+
+app.post('/api/questions', controller.questions.create); // admins only
+
+app.get('/api/questions/:id', controller.questions.show); //admins only
+
+app.put('/api/questions/:id', controller.questions.update); //admins only
+
+app.delete('/api/questions/:id', controller.questions.destroy); //admins only
+
+//ANSWERS ENDPOINTS
+app.get('/api/answers', controller.answers.index);
+
+app.post('/api/answers', controller.answers.create);
+
+app.get('/api/answers/:id', controller.answers.show);
+
+app.put('/api/answers/:id', controller.answers.update);
+
+app.delete('/api/answers/:id', controller.answers.destroy);
+=======
 app.get('/api/quiz', controller.quiz.index);
 
 app.post('/api/quiz', controller.quiz.create);
@@ -30,6 +64,7 @@ app.get('/api/quiz/:id', controller.quiz.show);
 app.put('/api/quiz/:id', controller.quiz.update);
 
 app.delete('/api/quiz/:id', controller.quiz.destroy);
+>>>>>>> 9fc18153fe97dbe1ca8737ae038454c78a98bc33
 
 /**********
  * SERVER *

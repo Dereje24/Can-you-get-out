@@ -1,5 +1,6 @@
-var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/Can-you-get-out');
-var Question = require('./Question');
+var mongoose = require("mongoose");
+mongoose.connect("mongodb://localhost/3000");
 
-module.exports = { Question: Question };
+module.exports.Quiz = require("./Quiz.js");
+module.exports.Question = require("./Question.js");
+module.exports.Answer = require("./Answer.js");
