@@ -8,7 +8,7 @@ $.ajax({
 	method: 'GET',
 	url: 'https://opentdb.com/api.php?amount=20&category=18&difficulty=hard&type=multiple',
 	success: handleSuccess(json),
-	error: handleError
+	error: handleError()
 
 });
 
@@ -21,7 +21,7 @@ function handleSuccess(json) {
 			incorrect_answers: val.incorrect_answers
 		}		
 	});
-	
+
 	
 }
 
