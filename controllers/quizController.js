@@ -2,10 +2,10 @@ var db = require('../models');
 
 module.exports = {
   index: function(req,res){
-    db.quiz.find({}, function(err, allQuizes){
+    db.quiz.find({}, function(err, allQuizzes){
       if(err){res.status(500).json({"ERROR":"Database Error"})}
-      console.log("allQuizes: \n", allQuizes)
-      res.status(200).json({"quizs": allQuizes})
+      console.log("allQuizzes: \n", allQuizzes)
+      res.status(200).json({"quizs": allQuizzes})
     });
   },
 

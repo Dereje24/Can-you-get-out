@@ -1,5 +1,5 @@
 module.exports = {
   questions: require('./questionsController'),
-  quizes: require('./quizController'),
+  quizzes: require('./quizController'),
   answers: require('./answersController')
 };
