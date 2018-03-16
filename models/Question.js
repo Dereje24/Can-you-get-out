@@ -2,10 +2,13 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var QuestionSchema = new Schema({
+  category: String,
+  type: String,
+  difficulty: String,
   question: String,
+  correct_answer: String,
+  incorrect_answers: Array,
   //answer_id: -id,
-  lat: String,
-  long: String,
 });
 
 var Question = mongoose.model("Question", QuestionSchema);
