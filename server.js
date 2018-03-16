@@ -21,6 +21,7 @@ app.get('/', function homepage(req, res) {
 
 //JSON API ENDPOINTS
 
+<<<<<<< HEAD
 //QUIZ ENDPOINTS
 app.get('/api/quiz', controller.quizes.index);
 
@@ -53,6 +54,17 @@ app.get('/api/answers/:id', controller.answers.show);
 app.put('/api/answers/:id', controller.answers.update);
 
 app.delete('/api/answers/:id', controller.answers.destroy);
+=======
+app.get('/api/quiz', controller.quiz.index);
+
+app.post('/api/quiz', controller.quiz.create);
+
+app.get('/api/quiz/:id', controller.quiz.show);
+
+app.put('/api/quiz/:id', controller.quiz.update);
+
+app.delete('/api/quiz/:id', controller.quiz.destroy);
+>>>>>>> 9fc18153fe97dbe1ca8737ae038454c78a98bc33
 
 /**********
  * SERVER *
