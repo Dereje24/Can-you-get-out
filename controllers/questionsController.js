@@ -44,5 +44,17 @@ module.exports = {
       console.log("removedquestion: \n", removedquestion);
       res.status(200).json({"question": removedquestion});
     });
+  },
+
+  //HTML endpoint to start the quiz ( list all questions)
+
+  list: function(req, res){
+    // console.log(db);
+    db.Question.find({}, function(err, allQuestions){
+      if(err){res.status(500).json({"ERROR":"Database Error"});}
+      console.log("allQuestions: \n", allQuestions);
+      // return;
+      res.render("map", { quiz: allQuestions});
+    });
   }
 };
