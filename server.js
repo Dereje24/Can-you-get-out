@@ -30,6 +30,10 @@ app.get('/', function homepage(req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
 
+app.get('/landing', function homepage(req, res) {
+  res.sendFile(__dirname + '/views/landing.html');
+});
+
 app.get("/quiz", controller.questions.list);
 
 //JSON API ENDPOINTS
