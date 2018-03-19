@@ -14,6 +14,14 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amatic+SC">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald">
 
+  <!-- Bootstrap CSS CDN -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <!-- Our Custom CSS -->
+      <link rel="stylesheet" href="/styles/landing.css">
+      <link rel="stylesheet" href="/styles/nav.css">
+      <!-- Scrollbar Custom CSS -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+
   <!-- APPLICATION SCRIPTS -->
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
   <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/solid.js" integrity="sha384-+Ga2s7YBbhOD6nie0DzrZpJes+b2K1xkpKxTFFcx59QmVPaSA8c7pycsNaFwUK6l" crossorigin="anonymous"></script>
@@ -22,6 +30,93 @@
 
 </head>
 <body>
+  <div class="wrapper">
+    <!-- Sidebar Holder -->
+    <nav id="sidebar" class = "bring-to-front sidebar-overlay">
+        <div id="dismiss">
+            <i class="glyphicon glyphicon-arrow-left"></i>
+        </div>
+
+        <div class="sidebar-header">
+            <h3>About</h3>
+        </div>
+
+        <ul class="list-unstyled components">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <li class="active">
+                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false"><h5>The Creators</h5></a>
+                <ul class="collapse list-unstyled" id="homeSubmenu">
+                    <li><p>Elaine</p><a href="https://github.com/TheForce88">Github</a></li>
+                    <li><p>Dereje</p><a href="https://github.com/Dereje24">Github</a></li>
+                    <li><p>Kingsley</p><a href="https://github.com/xingzo">Github</a></li>
+                </ul>
+            </li>
+            <li>
+              <p><a href="#">Contact Us</a><p>
+            </li>
+        </ul>
+
+        <ul class="list-unstyled CTAs">
+            <li><a href="https://bootstrapious.com/tutorial/files/sidebar.zip" class="download">Download source</a></li>
+            <li><a href="https://bootstrapious.com/p/bootstrap-sidebar" class="article">Back to article</a></li>
+        </ul>
+    </nav>
+
+    <!-- Page Content Holder -->
+    <div id="content">
+
+        <nav class="navbar navbar-default bring-to-front">
+            <div class="container-fluid">
+
+                <div class="navbar-header">
+                    <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
+                        <i class="glyphicon glyphicon-align-left"></i>
+                    </button>
+                </div>
+
+                <!-- Stretch Goals -->
+                <!-- <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#">Quiz1</a></li>
+                        <li><a href="#">Quiz2</a></li>
+                        <li><a href="#">Quiz3</a></li>
+                        <li><a href="#">Quiz4</a></li>
+                    </ul>
+                </div> -->
+            </div>
+        </nav>
+    </div>
+</div>
+
+<div class="overlay"></div>
+
+
+      <!-- jQuery CDN -->
+      <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+      <!-- Bootstrap Js CDN -->
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      <!-- jQuery Custom Scroller CDN -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+
+      <script type="text/javascript">
+          $(document).ready(function () {
+              $("#sidebar").mCustomScrollbar({
+                  theme: "minimal"
+              });
+
+              $('#dismiss, .overlay').on('click', function () {
+                  $('#sidebar').removeClass('active');
+                  $('.overlay').fadeOut();
+              });
+
+              $('#sidebarCollapse').on('click', function () {
+                  $('#sidebar').addClass('active');
+                  $('.overlay').fadeIn();
+                  $('.collapse.in').toggleClass('in');
+                  $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+              });
+          });
+      </script>
 
   <!-- <h1>Hello Video!</h1>
   <div class="homepage-hero-module">
@@ -42,96 +137,15 @@
       <video src="/images/Into_the_Wild.mp4" autoplay="true" loop="true"></video>
     </div>
     <div class="header-overlay"></div>
-    <div class="header-content">
+    <div class="header-content bring-to-front">
       <h1>Get Out</h1>
       <p>Answer challenging computer science questions as you travel around the world. See if you can make it back to the motherland...</p>
       <a href="#" class="btn">Click to Enter</a>
     </div>
   </header>
 
-    <!-- SideNav slide-out button -->
-    <a href="#" data-activates="slide-out" class="btn btn-primary p-3 button-collapse"><i class="fa fa-bars"></i></a>
 
-    <!-- Sidebar navigation -->
-    <div id="slide-out" class="side-nav fixed">
-    <ul class="custom-scrollbar">
-        <!-- Logo -->
-        <li>
-            <div class="logo-wrapper waves-light">
-                <h2>About the site</h2>
-            </div>
-        </li>
-        <!--/. Logo -->
-        <!--Search Form-->
-        <li>
-            <form class="search-form" role="search">
-                <div class="form-group md-form mt-0 pt-1 waves-light">
-                    <input type="text" class="form-control" placeholder="Search">
-                </div>
-            </form>
-        </li>
-        <!--/.Search Form-->
-        <!-- Side navigation links -->
-        <li>
-            <ul class="collapsible collapsible-accordion">
-                <li><a class="collapsible-header waves-effect arrow-r"><i class="fa fa-chevron-right"></i> Submit blog<i class="fa fa-angle-down rotate-icon"></i></a>
-                    <div class="collapsible-body">
-                        <ul>
-                            <li><a href="#" class="waves-effect">Log In</a>
-                            </li>
-                            <li><a href="#" class="waves-effect">Sign Up</a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-                <li><a class="collapsible-header waves-effect arrow-r"><i class="fa fa-envelope-o"></i> Contact the Creators<i class="fa fa-angle-down rotate-icon"></i></a>
-                    <div class="collapsible-body">
-                        <ul>
-                            <li><a href="#" class="waves-effect">Placeholder</a>
-                            </li>
-                            <!--Media links-->
-                            <li>
-                                <ul class="social">
-                                    <li><a href="#" class="icons-sm fb-ic"><i class="fab fa-linkedin"> </i></a></li>
-                                    <li><a href="#" class="icons-sm pin-ic"><i class="fab fa-github"> </i></a></li>
-                                </ul>
-                            </li>
-                            <!--/Media Links-->
-                            <li><a href="#" class="waves-effect">Write a message</a>
-                            </li>
-                            <li><a href="#" class="waves-effect">Placeholder</a>
-                            </li>
-                            <!--Media links-->
-                            <li>
-                                <ul class="social">
-                                    <li><a href="#" class="icons-sm fb-ic"><i class="fab fa-linkedin"> </i></a></li>
-                                    <li><a href="#" class="icons-sm pin-ic"><i class="fab fa-github"> </i></a></li>
-                                </ul>
-                            </li>
-                            <!--/Media Links-->
-                            <li><a href="#" class="waves-effect">Write a message</a>
-                            </li>
-                            <li><a href="#" class="waves-effect">Placeholder</a>
-                            </li>
-                            <!--Media links-->
-                            <li>
-                                <ul class="social">
-                                    <li><a href="#" class="icons-sm fb-ic"><i class="fab fa-linkedin"> </i></a></li>
-                                    <li><a href="#" class="icons-sm pin-ic"><i class="fab fa-github"> </i></a></li>
-                                </ul>
-                            </li>
-                            <!--/Media Links-->
-                            <li><a href="#" class="waves-effect">Write a message</a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-            </ul>
-        </li>
-        <!--/. Side navigation links -->
-    </ul>
-    </div>
-    <!--/. Sidebar navigation -->
+
 
 </body>
 </html>
