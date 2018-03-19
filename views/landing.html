@@ -1,4 +1,5 @@
 <!-- find me at "localhost:3000/landing" -->
+<!DOCTYPE html>
 <html>
 <head>
   <meta charset="UTF-8">
@@ -12,6 +13,13 @@
   <link rel="stylesheet" href="/styles/landing.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amatic+SC">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald">
+
+  <!-- APPLICATION SCRIPTS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/solid.js" integrity="sha384-+Ga2s7YBbhOD6nie0DzrZpJes+b2K1xkpKxTFFcx59QmVPaSA8c7pycsNaFwUK6l" crossorigin="anonymous"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/fontawesome.js" integrity="sha384-7ox8Q2yzO/uWircfojVuCQOZl+ZZBg2D2J5nkpLqzH1HY0C1dHlTKIbpRz/LG23c" crossorigin="anonymous"></script>
+  <script src="/scripts/landing.js"></script>
+
 </head>
 <body>
 
@@ -41,6 +49,89 @@
     </div>
   </header>
 
+    <!-- SideNav slide-out button -->
+    <a href="#" data-activates="slide-out" class="btn btn-primary p-3 button-collapse"><i class="fa fa-bars"></i></a>
+
+    <!-- Sidebar navigation -->
+    <div id="slide-out" class="side-nav fixed">
+    <ul class="custom-scrollbar">
+        <!-- Logo -->
+        <li>
+            <div class="logo-wrapper waves-light">
+                <h2>About the site</h2>
+            </div>
+        </li>
+        <!--/. Logo -->
+        <!--Search Form-->
+        <li>
+            <form class="search-form" role="search">
+                <div class="form-group md-form mt-0 pt-1 waves-light">
+                    <input type="text" class="form-control" placeholder="Search">
+                </div>
+            </form>
+        </li>
+        <!--/.Search Form-->
+        <!-- Side navigation links -->
+        <li>
+            <ul class="collapsible collapsible-accordion">
+                <li><a class="collapsible-header waves-effect arrow-r"><i class="fa fa-chevron-right"></i> Submit blog<i class="fa fa-angle-down rotate-icon"></i></a>
+                    <div class="collapsible-body">
+                        <ul>
+                            <li><a href="#" class="waves-effect">Log In</a>
+                            </li>
+                            <li><a href="#" class="waves-effect">Sign Up</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a class="collapsible-header waves-effect arrow-r"><i class="fa fa-envelope-o"></i> Contact the Creators<i class="fa fa-angle-down rotate-icon"></i></a>
+                    <div class="collapsible-body">
+                        <ul>
+                            <li><a href="#" class="waves-effect">Placeholder</a>
+                            </li>
+                            <!--Media links-->
+                            <li>
+                                <ul class="social">
+                                    <li><a href="#" class="icons-sm fb-ic"><i class="fab fa-linkedin"> </i></a></li>
+                                    <li><a href="#" class="icons-sm pin-ic"><i class="fab fa-github"> </i></a></li>
+                                </ul>
+                            </li>
+                            <!--/Media Links-->
+                            <li><a href="#" class="waves-effect">Write a message</a>
+                            </li>
+                            <li><a href="#" class="waves-effect">Placeholder</a>
+                            </li>
+                            <!--Media links-->
+                            <li>
+                                <ul class="social">
+                                    <li><a href="#" class="icons-sm fb-ic"><i class="fab fa-linkedin"> </i></a></li>
+                                    <li><a href="#" class="icons-sm pin-ic"><i class="fab fa-github"> </i></a></li>
+                                </ul>
+                            </li>
+                            <!--/Media Links-->
+                            <li><a href="#" class="waves-effect">Write a message</a>
+                            </li>
+                            <li><a href="#" class="waves-effect">Placeholder</a>
+                            </li>
+                            <!--Media links-->
+                            <li>
+                                <ul class="social">
+                                    <li><a href="#" class="icons-sm fb-ic"><i class="fab fa-linkedin"> </i></a></li>
+                                    <li><a href="#" class="icons-sm pin-ic"><i class="fab fa-github"> </i></a></li>
+                                </ul>
+                            </li>
+                            <!--/Media Links-->
+                            <li><a href="#" class="waves-effect">Write a message</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </li>
+        <!--/. Side navigation links -->
+    </ul>
+    </div>
+    <!--/. Sidebar navigation -->
 
 </body>
 </html>

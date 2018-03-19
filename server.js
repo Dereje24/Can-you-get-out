@@ -34,6 +34,10 @@ app.get('/landing', function homepage(req, res) {
   res.sendFile(__dirname + '/views/landing.html');
 });
 
+app.get('/background_test', function homepage(req, res) {
+  res.sendFile(__dirname + '/views/background_test.html');
+});
+
 app.get("/quiz", controller.questions.list);
 
 //JSON API ENDPOINTS
