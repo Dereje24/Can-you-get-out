@@ -174,29 +174,7 @@ $loadQuestion = function(allQuestions, questionNumber, cords){
           map.addImage(allQuestions.questions[questionNumber]._id, image);
           map.addLayer({
 
-              "id": "points",
-              "type": "symbol",
-              "source": {
-                  "type": "geojson",
-                  "data": {
-                      "type": "FeatureCollection",
-                      "features": [{
-                          "title": "Tribe 1",
-                          "type": "Feature",
-                          "properties": {
-                            "description":
-                            `<strong>Question</strong><p> ${allQuestions.questions[0].question} 
-                            <a href=\"http://www.muhsinah.com\" target=\"_blank\" title=\"Opens in a new window\">Muhsinah</a> 
-                            plays the <a href=\"http://www.blackcatdc.com\">Black Cat</a> 
-                            (1811 14th Street NW) tonight with <a href=\"http://www.exitclov.com\" target=\"_blank\" title=\"Opens in a new window\">
-                            Exit Clov</a>
-                             and <a href=\"http://godsilla.bandcamp.com\" target=\"_blank\" title=\"Opens in a new window\">Gods’illa</a>. 9:00 p.m. $12.</p>`,
-                            "icon": "music"
-                          },
-                          "geometry": {
-                              "type": "Point",
-                              "coordinates": [-83.765, 34.974]
-                          }
+
 						"id": allQuestions.questions[questionNumber]._id,
 						"type": "symbol",
 						"source": {
@@ -218,7 +196,28 @@ $loadQuestion = function(allQuestions, questionNumber, cords){
 										</label><label>
 										<input type="radio" name="question${0}" value="${0}">
 										${0} : ${allQuestions.questions[questionNumber].incorrect_answers[2]}
-										</label></div><button id = "next-button"> nextforreal </button>
+										</label><strong>Question</strong <h3> ${allQuestions.questions[questionNumber].question} </h3>
+										<div id = "answers"><label>
+										<input type="radio" name="question${0}" value="${0}">
+										${0} : ${allQuestions.questions[questionNumber].incorrect_answers[0]}
+										</label><label>
+										<input type="radio" name="question${0}" value="${0}">
+										${0} : ${allQuestions.questions[questionNumber].incorrect_answers[1]}
+										</label><label>
+										<input type="radio" name="question${0}" value="${0}">
+										${0} : ${allQuestions.questions[questionNumber].incorrect_answers[2]}
+										</label><strong>Question</strong <h3> ${allQuestions.questions[questionNumber].question} </h3>
+										<div id = "answers"><label>
+										<input type="radio" name="question${0}" value="${0}">
+										${0} : ${allQuestions.questions[questionNumber].incorrect_answers[0]}
+										</label><label>
+										<input type="radio" name="question${0}" value="${0}">
+										${0} : ${allQuestions.questions[questionNumber].incorrect_answers[1]}
+										</label><label>
+										<input type="radio" name="question${0}" value="${0}">
+										${0} : ${allQuestions.questions[questionNumber].incorrect_answers[2]}
+										</label></div><button id="next-button"> nextforreal </button>
+
 										 <a href=\"http://www.blackcatdc.com\">Submit</a> <a href=\"http://www.exitclov.com\" target=\"_blank\" title=\"Opens in a new window\">Next</a> and <a href=\"http://godsilla.bandcamp.com\" target=\"_blank\" title=\"Opens in a new window\">Gods’illa</a>. 9:00 p.m. $12.`,
 										"icon": "music"
 									},
@@ -234,10 +233,12 @@ $loadQuestion = function(allQuestions, questionNumber, cords){
                   "text-field": "{title}",
                   "icon-image": allQuestions.questions[questionNumber]._id,
                   "icon-size": 0.25
-              }
+              },
+							"message": "Baz",
+							"iconSize": [40, 40]
           });
       });
-
+			// $(selector).data('answer') // => true
 			map.loadImage('http://localhost:3000/images/logo4.png', function(error, image) {
 					if (error) throw error;
 					map.addImage(allQuestions.questions[1]._id, image);
@@ -258,12 +259,12 @@ $loadQuestion = function(allQuestions, questionNumber, cords){
 										<input type="radio" name="question${0}" value="${0}">
 										${0} : ${allQuestions.questions[questionNumber].incorrect_answers[0]}
 										</label><label>
-										<input type="radio" name="question${0}" value="${0}">
+										<input type="radio" data-answer="true" name="question${0}" value="${0}">
 										${0} : ${allQuestions.questions[questionNumber].incorrect_answers[1]}
 										</label><label>
 										<input type="radio" name="question${0}" value="${0}">
 										${0} : ${allQuestions.questions[questionNumber].incorrect_answers[2]}
-										</label></div><button id = "next-button"> nextforreal </button>
+										</label></div><button id="next-button"> nextforreal </button>
 										 <a href=\"http://www.blackcatdc.com\">Submit</a> <a href=\"http://www.exitclov.com\" target=\"_blank\" title=\"Opens in a new window\">Next</a> and <a href=\"http://godsilla.bandcamp.com\" target=\"_blank\" title=\"Opens in a new window\">Gods’illa</a>. 9:00 p.m. $12.`,
 										"icon": "music"
 									},
@@ -279,9 +280,13 @@ $loadQuestion = function(allQuestions, questionNumber, cords){
 									"icon-image": allQuestions.questions[1]._id,
 									"icon-size": 0.25,
 									"visibility": "none"
-							}
+							},
+								"message": "Baz",
+                "iconSize": [40, 40]
 					});
 			});
+
+
 
       // When a click event occurs on a feature in the places layer, open a popup at the
   // location of the feature, with description HTML from its properties.
@@ -291,6 +296,58 @@ $loadQuestion = function(allQuestions, questionNumber, cords){
 		map.on('click', allQuestions.questions[i]._id, function (e) {
 				var coordinates = e.features[0].geometry.coordinates.slice();
 				var description = e.features[0].properties.description;
+
+				e.features.forEach(function(marker) {
+					// create a DOM element for the marker
+					var el = document.createElement('div');
+					el.className = 'marker';
+					//el.style.backgroundImage = 'url(https://placekitten.com/g/' + marker.properties.iconSize.join('/') + '/)';
+					el.style.width = 40 + 'px';
+					el.style.height = 40 + 'px';
+
+						// el.addEventListener('click', function() {
+						// 		window.alert("Hello it's me");
+						// });
+
+					var buttonTest = document.createElement('button');
+					buttonTest.addEventListener('click', function(){
+						window.alert("Hope this works");
+					});
+					description = `<form>
+					<strong>Question</strong <h3> ${allQuestions.questions[1].question} </h3>
+					<div id = "answers"><label>
+					<input type="radio" name="question${0}" value="${0}">
+					${0} : ${allQuestions.questions[questionNumber].incorrect_answers[0]}
+					</label><label>
+					<input type="radio" data-answer="true" name="question${0}" value="${0}">
+					${0} : ${allQuestions.questions[questionNumber].incorrect_answers[1]}
+					</label><label>
+					<input type="radio" name="question${0}" value="${0}">
+					${0} : ${allQuestions.questions[questionNumber].incorrect_answers[2]}
+					</label></div><button id="next-button"> nextforreal </button>
+					</form>`;
+
+					$('form').on('Submit', function(){
+					.ajax({
+						method: 'GET',
+						data: 'question.id',
+						success: validateSuccess,
+						error: error
+					});
+
+					function validateSuccess(res){
+						res.send('hello');
+					};
+				});
+
+
+
+
+					// add marker to map
+					new mapboxgl.Marker(el)
+							.setLngLat(marker.geometry.coordinates)
+							.addTo(map);
+			});
 
 				// Ensure that if the map is zoomed out such that multiple
 				// copies of the feature are visible, the popup appears
@@ -317,6 +374,8 @@ $loadQuestion = function(allQuestions, questionNumber, cords){
   map.on('mouseleave', 'Point', function () {
       map.getCanvas().style.cursor = '';
   });
+
+
   });
 
 
