@@ -52,7 +52,7 @@ var map = new mapboxgl.Map({
 //
 // };
 
-var allProjects = {};
+var allQuestions = {};
 
 var cords1 = [-83.765, 34.974];
 var cords2 = [-84.765, 39.974];
@@ -300,9 +300,9 @@ $loadQuestion = function(allQuestions, questionNumber, cords){
 
 
 function handleSuccess(json) {
-  allProjects = json;
-  console.log(allProjects);
-  $loadQuestion(allProjects, 0, cords1);
+  allQuestions = json;
+  console.log(allQuestions);
+  $loadQuestion(allQuestions, 0, cords1);
 }
 
 $("#next-question").on("click", function(){
@@ -321,7 +321,7 @@ $("#next-question").on("click", function(){
 
 	 center: cords2
 });
-			map.setLayoutProperty(allProjects.questions[1]._id, 'visibility', 'visible');
+			map.setLayoutProperty(allQuestions.questions[1]._id, 'visibility', 'visible');
 	 	 // $loadQuestion(allProjects, 1, cords2);
 
 
