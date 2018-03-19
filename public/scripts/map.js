@@ -1,3 +1,5 @@
+
+
 $(document).ready(function(){
 $.ajax({
 	method: 'GET',
@@ -9,10 +11,12 @@ $.ajax({
 
 
 
-
+var form2 = "";
 
 //accessToken
-mapboxgl.accessToken = 'pk.eyJ1IjoieGluZ3pvIiwiYSI6ImNqZXU2cXV3cTAzczUyeG1tZG03Z25zbWgifQ.ej8aUunGo8OUsbRG3XGjuw';
+mapboxgl. accessToken =
+"pk.eyJ1IjoieGluZ3pvIiwiYSI6ImNqZXU2cXV3cTAzczUyeG1tZG03Z25zbWgifQ.ej8aUunGo8OUsbRG3XGjuw";
+
 
 
 //declare our map
@@ -309,11 +313,38 @@ $loadQuestion = function(allQuestions, questionNumber, cords){
 						// 		window.alert("Hello it's me");
 						// });
 
-					var buttonTest = document.createElement('button');
+					var buttonTest = document.createElement('input');
+					buttonTest.type = "submit";
 					buttonTest.addEventListener('click', function(){
 						window.alert("Hope this works");
 					});
-					description = `<form>
+
+					var buttonTest2 = "<script> window.alert(23) </script> <button> my button </button>";
+					// buttonTest2.addEventListener('click', function(){
+					// 	window.alert('tttteeessstttt');
+					// })
+
+					console.log(buttonTest2);
+
+					$(form2).on('submit', function(e){
+						console.log('hi');
+						e.preventDefault();
+						e.stopPropagation();
+
+					ajax({
+						method: 'GET',
+						url: '/api/questions',
+						data: 'question.id',
+						success: validateSuccess,
+						error: error
+					});
+					function validateSuccess(res){
+						console.log('this works');
+						//res.send('hello');
+					};
+				});
+
+					form2 = `<form>
 					<strong>Question</strong <h3> ${allQuestions.questions[1].question} </h3>
 					<div id = "answers"><label>
 					<input type="radio" name="question${0}" value="${0}">
@@ -324,21 +355,12 @@ $loadQuestion = function(allQuestions, questionNumber, cords){
 					</label><label>
 					<input type="radio" name="question${0}" value="${0}">
 					${0} : ${allQuestions.questions[questionNumber].incorrect_answers[2]}
-					</label></div><button id="next-button"> nextforreal </button>
+					</label></div><input type='submit' id="next-button"> </input> ${buttonTest2};
 					</form>`;
 
-					$('form').on('Submit', function(){
-					.ajax({
-						method: 'GET',
-						data: 'question.id',
-						success: validateSuccess,
-						error: error
-					});
+					description = form2;
 
-					function validateSuccess(res){
-						res.send('hello');
-					};
-				});
+
 
 
 
@@ -355,10 +377,18 @@ $loadQuestion = function(allQuestions, questionNumber, cords){
 				while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
 						coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
 				}
-
+				var h1 = document.createElement('h1');
+				h1.innerHTML="Hello, World";
+				//popup.setDOMContent(h1);
+				var buttonTest = document.createElement('input');
+				buttonTest.type = "submit";
+				buttonTest.addEventListener('click', function(){
+					window.alert("Hope this works");
+				});
 				new mapboxgl.Popup()
 						.setLngLat(coordinates)
-						.setHTML(description)
+						.setDOMContent(form2)
+						//.setHTML(description)
 						.addTo(map);
 		});
 
