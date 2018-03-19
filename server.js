@@ -10,6 +10,9 @@ app.use(bodyParser.urlencoded({ extended: true}));
 // serve static files from public folder
 app.use(express.static(__dirname + '/public'));
 
+// set view engine to ejs
+app.set("view engine", "ejs");
+
 // Allow CORS: we'll use this today to reduce security so we can more easily test our code in the browser.
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
@@ -26,6 +29,16 @@ app.use(function(req, res, next) {
 app.get('/', function homepage(req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
+
+app.get('/landing', function homepage(req, res) {
+  res.sendFile(__dirname + '/views/landing.html');
+});
+
+app.get('/background_test', function homepage(req, res) {
+  res.sendFile(__dirname + '/views/background_test.html');
+});
+
+app.get("/quiz", controller.questions.list);
 
 //JSON API ENDPOINTS
 
@@ -61,8 +74,6 @@ app.get('/api/answers/:id', controller.answers.show);
 app.put('/api/answers/:id', controller.answers.update);
 
 app.delete('/api/answers/:id', controller.answers.destroy);
-
-
 
 /**********
  * SERVER *
