@@ -65,7 +65,12 @@ $loadQuestion = function(allQuestions){
                           "type": "Feature",
                           "properties": {
                             "description":
-                            `<strong>Question</strong><p> ${allQuestions.questions[0].question} <a href=\"http://www.muhsinah.com\" target=\"_blank\" title=\"Opens in a new window\">Muhsinah</a> plays the <a href=\"http://www.blackcatdc.com\">Black Cat</a> (1811 14th Street NW) tonight with <a href=\"http://www.exitclov.com\" target=\"_blank\" title=\"Opens in a new window\">Exit Clov</a> and <a href=\"http://godsilla.bandcamp.com\" target=\"_blank\" title=\"Opens in a new window\">Gods’illa</a>. 9:00 p.m. $12.</p>`,
+                            `<strong>Question</strong><p> ${allQuestions.questions[0].question} 
+                            <a href=\"http://www.muhsinah.com\" target=\"_blank\" title=\"Opens in a new window\">Muhsinah</a> 
+                            plays the <a href=\"http://www.blackcatdc.com\">Black Cat</a> 
+                            (1811 14th Street NW) tonight with <a href=\"http://www.exitclov.com\" target=\"_blank\" title=\"Opens in a new window\">
+                            Exit Clov</a>
+                             and <a href=\"http://godsilla.bandcamp.com\" target=\"_blank\" title=\"Opens in a new window\">Gods’illa</a>. 9:00 p.m. $12.</p>`,
                             "icon": "music"
                           },
                           "geometry": {
