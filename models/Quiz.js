@@ -8,8 +8,6 @@ var QuizSchema = new Schema({
   type: String,
   difficulty: String,
   questions: [{ type: Schema.Types.ObjectId, ref: 'Question' }]
-  // correct_answer_id: String,
-  // incorrect_answers: Array //don't think we need this
 });
 
 var Quiz = mongoose.model("Quiz", QuizSchema);

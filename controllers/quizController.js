@@ -5,7 +5,7 @@ module.exports = {
     db.Quiz.find({}, function(err, allQuizzes){
       if(err){res.status(500).json({"ERROR":"Database Error"})}
       console.log("allQuizzes: \n", allQuizzes)
-      res.status(200).json({"quizs": allQuizzes})
+      res.status(200).json({"quizzes": allQuizzes})
     });
   },
 
