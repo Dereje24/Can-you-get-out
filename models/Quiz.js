@@ -1,13 +1,15 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
+var Question = require('./Question');
 
 var QuizSchema = new Schema({
+  title: String,
   category: String,
   type: String,
   difficulty: String,
-  question_id: String,
-  correct_answer_id: String,
-  incorrect_answers: Array //don't think we need this
+  questions: [{ type: Schema.Types.ObjectId, ref: 'Question' }]
+  // correct_answer_id: String,
+  // incorrect_answers: Array //don't think we need this
 });
 
 var Quiz = mongoose.model("Quiz", QuizSchema);

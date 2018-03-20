@@ -37,7 +37,7 @@ var bounds1 = [
     [-83.6058699000139, 35.07764500765852]  // Northeast coordinates
 ];
 var newCenter;
-
+var formsArray = {};
 var icon1 = "icon1";
 var $questionNumber = 1;
 
@@ -306,6 +306,9 @@ $loadQuestion = function(allQuestions, questionNumber, cords){
       // When a click event occurs on a feature in the places layer, open a popup at the
   // location of the feature, with description HTML from its properties.
 
+
+	createFormfunction(questionNumber, cords);
+
 	for ( var i = 0; i < allQuestions.questions.length; i++)
 	{
 		map.on('click', allQuestions.questions[i]._id, function (e) {
@@ -319,93 +322,97 @@ $loadQuestion = function(allQuestions, questionNumber, cords){
 				}
 
 				// this is where the question starts!!!!
-
-				for(var j = 0; j < allQuestions.questions.length; j++ )
-				{
-
-
-
-				var createForm = document.createElement('form');
-				createForm.setAttribute('action', '');
-				createForm.setAttribute('method', 'get');
-
-				var questionLable = document.createElement('lable');
-				questionLable.innerHTML = allQuestions.questions[j].question;
-				createForm.appendChild(questionLable);
-
-				var lineBreak = document.createElement('br');
-				createForm.appendChild(lineBreak);
-
-				var inputElement = document.createElement('input');
-				inputElement.innerHTML = 'Hello';
-				inputElement.setAttribute('type', 'radio');
-				inputElement.setAttribute('name', 'question');
-				inputElement.setAttribute('value', allQuestions.questions[j].incorrect_answers[0]);
-				createForm.appendChild(inputElement);
-
-				var lable0 = document.createElement('lable');
-				lable0.innerHTML = allQuestions.questions[j].incorrect_answers[0];
-				createForm.appendChild(lable0);
-				$(inputElement).on('change', function() {
-					lable0.style.color = "red";
-				});
-
-				var lineBreak = document.createElement('br');
-				createForm.appendChild(lineBreak);
-
-				var inputElement = document.createElement('input');
-				inputElement.setAttribute('type', 'radio');
-				inputElement.setAttribute('name', 'question');
-				createForm.appendChild(inputElement);
-
-				var lable1 = document.createElement('lable');
-				lable1.innerHTML = allQuestions.questions[j].incorrect_answers[1];
-				createForm.appendChild(lable1);
-				$(inputElement).on('change', function() {
-					lable1.style.color = "red";
-				});
-
-				var lineBreak = document.createElement('br');
-				createForm.appendChild(lineBreak);
-
-				var inputElement = document.createElement('input');
-				inputElement.setAttribute('type', 'radio');
-				inputElement.setAttribute('name', 'question');
-				createForm.appendChild(inputElement);
-
-				var lable2 = document.createElement('lable');
-				lable2.innerHTML = allQuestions.questions[j].incorrect_answers[2];
-				createForm.appendChild(lable2);
-				$(inputElement).on('change', function() {
-					lable2.style.color = "red";
-				});
-				var lineBreak = document.createElement('br');
-				createForm.appendChild(lineBreak);
-
-				var inputElement = document.createElement('input');
-				inputElement.setAttribute('type', 'radio');
-				inputElement.setAttribute('name', 'question');
-				createForm.appendChild(inputElement);
-
-				var lable = document.createElement('lable');
-				lable.innerHTML = allQuestions.questions[j].correct_answer;
-				createForm.appendChild(lable);
-				$(inputElement).on('change', function() {
-					lable.style.color = "lightgreen";
-					$("#next-question").removeClass("hidden");
-				});
-
-				var lineBreak = document.createElement('br');
-				createForm.appendChild(lineBreak);
-
-				new mapboxgl.Popup()
-						.setLngLat(coordinates)
-						.setDOMContent(createForm)
-						.addTo(map);
-
-
-
-					}
+				//
+				// for(var j = 0; j < allQuestions.questions.length; j++ )
+				// {
+				//
+				//
+				//
+				// var createForm = document.createElement('form');
+				// createForm.setAttribute('action', '');
+				// createForm.setAttribute('method', 'get');
+				//
+				// var questionLable = document.createElement('lable');
+				// questionLable.innerHTML = allQuestions.questions[j].question;
+				// createForm.appendChild(questionLable);
+				//
+				// var lineBreak = document.createElement('br');
+				// createForm.appendChild(lineBreak);
+				//
+				// var inputElement = document.createElement('input');
+				// inputElement.innerHTML = 'Hello';
+				// inputElement.setAttribute('type', 'radio');
+				// inputElement.setAttribute('name', 'question');
+				// inputElement.setAttribute('value', allQuestions.questions[j].incorrect_answers[0]);
+				// createForm.appendChild(inputElement);
+				//
+				// var lable0 = document.createElement('lable');
+				// lable0.innerHTML = allQuestions.questions[j].incorrect_answers[0];
+				// createForm.appendChild(lable0);
+				// $(inputElement).on('change', function() {
+				// 	lable0.style.color = "red";
+				// });
+				//
+				// var lineBreak = document.createElement('br');
+				// createForm.appendChild(lineBreak);
+				//
+				// var inputElement = document.createElement('input');
+				// inputElement.setAttribute('type', 'radio');
+				// inputElement.setAttribute('name', 'question');
+				// createForm.appendChild(inputElement);
+				//
+				// var lable1 = document.createElement('lable');
+				// lable1.innerHTML = allQuestions.questions[j].incorrect_answers[1];
+				// createForm.appendChild(lable1);
+				// $(inputElement).on('change', function() {
+				// 	lable1.style.color = "red";
+				// });
+				//
+				// var lineBreak = document.createElement('br');
+				// createForm.appendChild(lineBreak);
+				//
+				// var inputElement = document.createElement('input');
+				// inputElement.setAttribute('type', 'radio');
+				// inputElement.setAttribute('name', 'question');
+				// createForm.appendChild(inputElement);
+				//
+				// var lable2 = document.createElement('lable');
+				// lable2.innerHTML = allQuestions.questions[j].incorrect_answers[2];
+				// createForm.appendChild(lable2);
+				// $(inputElement).on('change', function() {
+				// 	lable2.style.color = "red";
+				// });
+				// var lineBreak = document.createElement('br');
+				// createForm.appendChild(lineBreak);
+				//
+				// var inputElement = document.createElement('input');
+				// inputElement.setAttribute('type', 'radio');
+				// inputElement.setAttribute('name', 'question');
+				// createForm.appendChild(inputElement);
+				//
+				// var lable = document.createElement('lable');
+				// lable.innerHTML = allQuestions.questions[j].correct_answer;
+				// createForm.appendChild(lable);
+				// $(inputElement).on('change', function() {
+				// 	lable.style.color = "lightgreen";
+				// 	$("#next-question").removeClass("hidden");
+				// });
+				//
+				// var lineBreak = document.createElement('br');
+				// createForm.appendChild(lineBreak);
+				//
+				// formsArray.form = createForm;
+				//
+				// console.log(formsArray.form);
+				//
+				//
+				//
+				// 	}
+					//
+					// new mapboxgl.Popup()
+					// 		.setLngLat(coordinates)
+					// 		.setDOMContent(createForm)
+					// 		.addTo(map);
 
 
 		});
@@ -416,6 +423,93 @@ $loadQuestion = function(allQuestions, questionNumber, cords){
 
 
 };
+
+var createFormfunction = function(questionNumber, cords){
+
+	map.on('click', allQuestions.questions[questionNumber]._id, function (e) {
+
+	var j = questionNumber;
+	var createForm = document.createElement('form');
+	createForm.setAttribute('action', '');
+	createForm.setAttribute('method', 'get');
+
+	var questionLable = document.createElement('lable');
+	questionLable.innerHTML = allQuestions.questions[j].question;
+	createForm.appendChild(questionLable);
+
+	var lineBreak = document.createElement('br');
+	createForm.appendChild(lineBreak);
+
+	var inputElement = document.createElement('input');
+	inputElement.innerHTML = 'Hello';
+	inputElement.setAttribute('type', 'radio');
+	inputElement.setAttribute('name', 'question');
+	inputElement.setAttribute('value', allQuestions.questions[j].incorrect_answers[0]);
+	createForm.appendChild(inputElement);
+
+	var lable0 = document.createElement('lable');
+	lable0.innerHTML = allQuestions.questions[j].incorrect_answers[0];
+	createForm.appendChild(lable0);
+	$(inputElement).on('change', function() {
+		lable0.style.color = "red";
+	});
+
+	var lineBreak = document.createElement('br');
+	createForm.appendChild(lineBreak);
+
+	var inputElement = document.createElement('input');
+	inputElement.setAttribute('type', 'radio');
+	inputElement.setAttribute('name', 'question');
+	createForm.appendChild(inputElement);
+
+	var lable1 = document.createElement('lable');
+	lable1.innerHTML = allQuestions.questions[j].incorrect_answers[1];
+	createForm.appendChild(lable1);
+	$(inputElement).on('change', function() {
+		lable1.style.color = "red";
+	});
+
+	var lineBreak = document.createElement('br');
+	createForm.appendChild(lineBreak);
+
+	var inputElement = document.createElement('input');
+	inputElement.setAttribute('type', 'radio');
+	inputElement.setAttribute('name', 'question');
+	createForm.appendChild(inputElement);
+
+	var lable2 = document.createElement('lable');
+	lable2.innerHTML = allQuestions.questions[j].incorrect_answers[2];
+	createForm.appendChild(lable2);
+	$(inputElement).on('change', function() {
+		lable2.style.color = "red";
+	});
+	var lineBreak = document.createElement('br');
+	createForm.appendChild(lineBreak);
+
+	var inputElement = document.createElement('input');
+	inputElement.setAttribute('type', 'radio');
+	inputElement.setAttribute('name', 'question');
+	createForm.appendChild(inputElement);
+
+	var lable = document.createElement('lable');
+	lable.innerHTML = allQuestions.questions[j].correct_answer;
+	createForm.appendChild(lable);
+	$(inputElement).on('change', function() {
+		lable.style.color = "lightgreen";
+		$("#next-question").removeClass("hidden");
+	});
+
+	var lineBreak = document.createElement('br');
+	createForm.appendChild(lineBreak);
+
+	new mapboxgl.Popup()
+			.setLngLat(cords)
+			.setDOMContent(createForm)
+			.addTo(map);
+
+		})
+
+}
 
 
 
@@ -431,6 +525,7 @@ $("#next-question").on("click", function(){
 	 center: cords2
 	});
 	map.setLayoutProperty(allQuestions.questions[1]._id, 'visibility', 'visible');
+	createFormfunction(1, cords2);
 
 
 })
@@ -454,6 +549,7 @@ $("#wakanda").on("click", function(){
 
 	 map.setLayoutProperty("road2", 'visibility', 'visible');
 	 map.setLayoutProperty(allQuestions.questions[2]._id, 'visibility', 'visible');
+	 createFormfunction(2, cords3);
 
 
 })
