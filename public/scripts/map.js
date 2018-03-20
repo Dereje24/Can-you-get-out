@@ -3,7 +3,7 @@
 $(document).ready(function(){
 $.ajax({
 	method: 'GET',
-	url: 'http://localhost:3000/api/questions',
+	url: '/api/questions',
 	success: handleSuccess
 
 });
