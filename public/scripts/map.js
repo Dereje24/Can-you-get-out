@@ -8,11 +8,6 @@ $.ajax({
 
 });
 
-
-
-
-var form2 = "";
-
 //accessToken
 mapboxgl. accessToken =
 "pk.eyJ1IjoieGluZ3pvIiwiYSI6ImNqZXU2cXV3cTAzczUyeG1tZG03Z25zbWgifQ.ej8aUunGo8OUsbRG3XGjuw";
@@ -23,38 +18,14 @@ mapboxgl. accessToken =
 var map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/xingzo/cjexnnpwg3gmh2rpg8v6ygu4a',
-    // zoom: 15.5,
 		zoom: 8.6,
-
     center: [-83.765, 34.974]
-		// center: [-74.0066, 40.7135],
-		// pitch: 45,
-		// hash: true,
- 		// bearing: -17.6
 });
 
 
 // _________________________ _________________________
 //MAP MENU FUNCTIONS
 // _________________________ _________________________
-// var layerList = document.getElementById('menu');
-// var inputs = layerList.getElementsByTagName('input');
-//
-// function switchLayer(layer) {
-//     var layerId = layer.target.id;
-//     map.setStyle('mapbox://styles/xingzo/cjeu6x4f908j22rpez3ersfua' + layerId + '-v9');
-// }
-//
-// for (var i = 0; i < inputs.length; i++) {
-//     inputs[i].onclick = switchLayer;
-// }
-
-// $loadMarkerswithQuestions =  function(allQuestions){
-//
-//   loadQuestion(allQuestions)
-//
-//
-// };
 
 var allQuestions = {};
 
@@ -167,15 +138,6 @@ $loadQuestion = function(allQuestions, questionNumber, cords){
                 "raster-brightness-max": 1
             }
         });
-
-
-
-
-
-
-
-
-
 
       map.loadImage('/images/logo4.png', function(error, image) {
           if (error) throw error;
@@ -341,70 +303,13 @@ $loadQuestion = function(allQuestions, questionNumber, cords){
 					});
 			});
 
-
-
       // When a click event occurs on a feature in the places layer, open a popup at the
   // location of the feature, with description HTML from its properties.
 
-	for ( var i = 0; i < 3; i++)
+	for ( var i = 0; i < allQuestions.questions.length; i++)
 	{
 		map.on('click', allQuestions.questions[i]._id, function (e) {
 				var coordinates = e.features[0].geometry.coordinates.slice();
-				var description = e.features[0].properties.description;
-
-				e.features.forEach(function(marker) {
-					// create a DOM element for the marker
-					var el = document.createElement('div');
-					el.className = 'marker';
-					//el.style.backgroundImage = 'url(https://placekitten.com/g/' + marker.properties.iconSize.join('/') + '/)';
-					el.style.width = 40 + 'px';
-					el.style.height = 40 + 'px';
-
-						// el.addEventListener('click', function() {
-						// 		window.alert("Hello it's me");
-						// });
-
-					var buttonTest = document.createElement('input');
-					buttonTest.type = "submit";
-					buttonTest.addEventListener('click', function(){
-						window.alert("Hope this works");
-					});
-
-					var buttonTest2 = "<script> window.alert(23) </script> <button> my button </button>";
-					// buttonTest2.addEventListener('click', function(){
-					// 	window.alert('tttteeessstttt');
-					// })
-
-					console.log(buttonTest2);
-
-
-
-					form2 = `<form>
-					<strong>Question</strong <h3> ${allQuestions.questions[1].question} </h3>
-					<div id = "answers"><label>
-					<input type="radio" name="question${0}" value="${0}">
-					${0} : ${allQuestions.questions[questionNumber].incorrect_answers[0]}
-					</label><label>
-					<input type="radio" data-answer="true" name="question${0}" value="${0}">
-					${0} : ${allQuestions.questions[questionNumber].incorrect_answers[1]}
-					</label><label>
-					<input type="radio" name="question${0}" value="${0}">
-					${0} : ${allQuestions.questions[questionNumber].incorrect_answers[2]}
-					</label></div><input type='submit' id="next-button"> </input> ${buttonTest2};
-					</form>`;
-
-					description = form2;
-
-
-
-
-
-
-					// add marker to map
-					new mapboxgl.Marker(el)
-							.setLngLat(marker.geometry.coordinates)
-							.addTo(map);
-			});
 
 				// Ensure that if the map is zoomed out such that multiple
 				// copies of the feature are visible, the popup appears
@@ -412,22 +317,20 @@ $loadQuestion = function(allQuestions, questionNumber, cords){
 				while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
 						coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
 				}
-				var h1 = document.createElement('h1');
-				h1.innerHTML="Hello, World";
-				//popup.setDOMContent(h1);
-				var buttonTest = document.createElement('input');
-				buttonTest.type = "submit";
-				buttonTest.addEventListener('click', function(){
-					window.alert("Hope this works");
-				});
+
 				// this is where the question starts!!!!
+
+				for(var j = 0; j < allQuestions.questions.length; j++ )
+				{
+
+
 
 				var createForm = document.createElement('form');
 				createForm.setAttribute('action', '');
 				createForm.setAttribute('method', 'get');
 
 				var questionLable = document.createElement('lable');
-				questionLable.innerHTML = allQuestions.questions[1].question;
+				questionLable.innerHTML = allQuestions.questions[j].question;
 				createForm.appendChild(questionLable);
 
 				var lineBreak = document.createElement('br');
@@ -437,11 +340,11 @@ $loadQuestion = function(allQuestions, questionNumber, cords){
 				inputElement.innerHTML = 'Hello';
 				inputElement.setAttribute('type', 'radio');
 				inputElement.setAttribute('name', 'question');
-				inputElement.setAttribute('value', allQuestions.questions[questionNumber].incorrect_answers[0]);
+				inputElement.setAttribute('value', allQuestions.questions[j].incorrect_answers[0]);
 				createForm.appendChild(inputElement);
 
 				var lable0 = document.createElement('lable');
-				lable0.innerHTML = allQuestions.questions[questionNumber].incorrect_answers[0];
+				lable0.innerHTML = allQuestions.questions[j].incorrect_answers[0];
 				createForm.appendChild(lable0);
 				$(inputElement).on('change', function() {
 					lable0.style.color = "red";
@@ -456,7 +359,7 @@ $loadQuestion = function(allQuestions, questionNumber, cords){
 				createForm.appendChild(inputElement);
 
 				var lable1 = document.createElement('lable');
-				lable1.innerHTML = allQuestions.questions[questionNumber].incorrect_answers[1];
+				lable1.innerHTML = allQuestions.questions[j].incorrect_answers[1];
 				createForm.appendChild(lable1);
 				$(inputElement).on('change', function() {
 					lable1.style.color = "red";
@@ -471,7 +374,7 @@ $loadQuestion = function(allQuestions, questionNumber, cords){
 				createForm.appendChild(inputElement);
 
 				var lable2 = document.createElement('lable');
-				lable2.innerHTML = allQuestions.questions[questionNumber].incorrect_answers[2];
+				lable2.innerHTML = allQuestions.questions[j].incorrect_answers[2];
 				createForm.appendChild(lable2);
 				$(inputElement).on('change', function() {
 					lable2.style.color = "red";
@@ -485,64 +388,29 @@ $loadQuestion = function(allQuestions, questionNumber, cords){
 				createForm.appendChild(inputElement);
 
 				var lable = document.createElement('lable');
-				lable.innerHTML = allQuestions.questions[questionNumber].correct_answer;
+				lable.innerHTML = allQuestions.questions[j].correct_answer;
 				createForm.appendChild(lable);
 				$(inputElement).on('change', function() {
 					lable.style.color = "lightgreen";
 					$("#next-question").removeClass("hidden");
-					//console.log('is it in the right place?');
 				});
-
-
 
 				var lineBreak = document.createElement('br');
 				createForm.appendChild(lineBreak);
 
-				// var submitElement = document.createElement('input');
-				// submitElement.setAttribute('type', 'submit');
-				// createForm.appendChild(submitElement);
-        //
-
-
-
-				$(createForm).on('submit', function(e){
-					e.preventDefault();
-					e.stopPropagation();
-
-				$.ajax({
-					method: 'GET',
-					url: '/api/questions',
-					data: 'question.id',
-					success: validateSuccess
-				});
-				function validateSuccess(res){
-					console.log('this works');
-
-					//res.send('hello');
-
-				};
-			});
-
 				new mapboxgl.Popup()
 						.setLngLat(coordinates)
-						.setHTML(description)
 						.setDOMContent(createForm)
 						.addTo(map);
+
+
+
+					}
+
+
 		});
 
 	}
-
-
-  // Change the cursor to a pointer when the mouse is over the places layer.
-  map.on('mouseenter', 'Point', function () {
-      map.getCanvas().style.cursor = 'pointer';
-  });
-
-  // Change it back to a pointer when it leaves.
-  map.on('mouseleave', 'Point', function () {
-      map.getCanvas().style.cursor = '';
-  });
-
 
   });
 
@@ -559,22 +427,10 @@ function handleSuccess(json) {
 
 $("#next-question").on("click", function(){
 
-	console.log("we in the next button fun");
-
-	// $loadQuestion(allProjects, 1, cords2);
-
 	map.flyTo({
-		// 	 center: [
-		// 			 -74.50 + (Math.random() - 0.5) * 10,
-		// 			 40 + (Math.random() - 0.5) * 10]
-	 // });
-	 //
-	 // newCenter = map.center;
-
 	 center: cords2
-});
-			map.setLayoutProperty(allQuestions.questions[1]._id, 'visibility', 'visible');
-	 	 // $loadQuestion(allProjects, 1, cords2);
+	});
+	map.setLayoutProperty(allQuestions.questions[1]._id, 'visibility', 'visible');
 
 
 })
@@ -583,20 +439,10 @@ $("#wakanda").on("click", function(){
 
 	console.log("we in the next button fun");
 
-	// var visibility = map.getLayoutProperty(clickedLayer, 'visibility');
-
 	map.setLayoutProperty("3d-buildings", 'visibility', 'visible');
 	map.setLayoutProperty("satellite2", 'visibility', 'visible');
 	map.setLayoutProperty("satellite", 'visibility', 'none');
 	map.setLayoutProperty("background", 'visibility', 'visible');
-
-
-			 // if (visibility === 'visible') {
-				// 	 map.setLayoutProperty("3d-buildings", 'visibility', 'none');
-				// 	 this.className = '';
-			 // }
-
-	// $loadQuestion(allProjects, 1, cords2);
 
 	map.flyTo({
 			 center: cords3,
