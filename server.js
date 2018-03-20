@@ -3,7 +3,7 @@ var express = require('express'),
     app = express(),
     controller = require('./controllers'),
     bodyParser = require('body-parser');
-var env = require('dotenv').config();
+
 
 
 // CONFIGURE APP

@@ -386,11 +386,15 @@ $loadQuestion = function(allQuestions, questionNumber, cords){
 				inputElement.innerHTML = 'Hello';
 				inputElement.setAttribute('type', 'radio');
 				inputElement.setAttribute('name', 'question');
+				inputElement.setAttribute('value', allQuestions.questions[questionNumber].incorrect_answers[0]);
 				createForm.appendChild(inputElement);
 
-				var lable = document.createElement('lable');
-				lable.innerHTML = allQuestions.questions[questionNumber].incorrect_answers[0];
-				createForm.appendChild(lable);
+				var lable0 = document.createElement('lable');
+				lable0.innerHTML = allQuestions.questions[questionNumber].incorrect_answers[0];
+				createForm.appendChild(lable0);
+				$(inputElement).on('change', function() {
+					lable0.style.color = "red";
+				});
 
 				var lineBreak = document.createElement('br');
 				createForm.appendChild(lineBreak);
@@ -400,9 +404,12 @@ $loadQuestion = function(allQuestions, questionNumber, cords){
 				inputElement.setAttribute('name', 'question');
 				createForm.appendChild(inputElement);
 
-				var lable = document.createElement('lable');
-				lable.innerHTML = allQuestions.questions[questionNumber].incorrect_answers[1];
-				createForm.appendChild(lable);
+				var lable1 = document.createElement('lable');
+				lable1.innerHTML = allQuestions.questions[questionNumber].incorrect_answers[1];
+				createForm.appendChild(lable1);
+				$(inputElement).on('change', function() {
+					lable1.style.color = "red";
+				});
 
 				var lineBreak = document.createElement('br');
 				createForm.appendChild(lineBreak);
@@ -412,10 +419,12 @@ $loadQuestion = function(allQuestions, questionNumber, cords){
 				inputElement.setAttribute('name', 'question');
 				createForm.appendChild(inputElement);
 
-				var lable = document.createElement('lable');
-				lable.innerHTML = allQuestions.questions[questionNumber].incorrect_answers[2];
-				createForm.appendChild(lable);
-
+				var lable2 = document.createElement('lable');
+				lable2.innerHTML = allQuestions.questions[questionNumber].incorrect_answers[2];
+				createForm.appendChild(lable2);
+				$(inputElement).on('change', function() {
+					lable2.style.color = "red";
+				});
 				var lineBreak = document.createElement('br');
 				createForm.appendChild(lineBreak);
 
@@ -427,16 +436,25 @@ $loadQuestion = function(allQuestions, questionNumber, cords){
 				var lable = document.createElement('lable');
 				lable.innerHTML = allQuestions.questions[questionNumber].correct_answer;
 				createForm.appendChild(lable);
+				$(inputElement).on('change', function() {
+					lable.style.color = "lightgreen";
+					$("#next-question").removeClass("hidden");
+					//console.log('is it in the right place?');
+				});
+
+
 
 				var lineBreak = document.createElement('br');
 				createForm.appendChild(lineBreak);
 
-				var submitElement = document.createElement('input');
-				submitElement.setAttribute('type', 'submit');
-				createForm.appendChild(submitElement);
+				// var submitElement = document.createElement('input');
+				// submitElement.setAttribute('type', 'submit');
+				// createForm.appendChild(submitElement);
+        //
+
+
 
 				$(createForm).on('submit', function(e){
-					console.log('hi');
 					e.preventDefault();
 					e.stopPropagation();
 
@@ -448,7 +466,9 @@ $loadQuestion = function(allQuestions, questionNumber, cords){
 				});
 				function validateSuccess(res){
 					console.log('this works');
+
 					//res.send('hello');
+
 				};
 			});
 
