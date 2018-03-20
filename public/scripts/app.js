@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
 var currentQuestion = 0;
-var totalQuestions = question_list.length;
+var totalQuestions = questions_list.length;
 
 $('#button').on('click', function(){
 	$('#test').hide();
