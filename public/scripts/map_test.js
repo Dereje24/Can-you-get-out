@@ -190,39 +190,7 @@ $loadQuestion = function(allQuestions, questionNumber, cords){
 									"type": "Feature",
 									"properties": {
 										"description":
-										`<strong>Question</strong <h3> ${allQuestions.questions[questionNumber].question} </h3>
-										<div id = "answers"><label>
-										<input type="radio" name="question${0}" value="${0}">
-										${0} : ${allQuestions.questions[questionNumber].incorrect_answers[0]}
-										</label><label>
-										<input type="radio" name="question${0}" value="${0}">
-										${0} : ${allQuestions.questions[questionNumber].incorrect_answers[1]}
-										</label><label>
-										<input type="radio" name="question${0}" value="${0}">
-										${0} : ${allQuestions.questions[questionNumber].incorrect_answers[2]}
-										</label><strong>Question</strong <h3> ${allQuestions.questions[questionNumber].question} </h3>
-										<div id = "answers"><label>
-										<input type="radio" name="question${0}" value="${0}">
-										${0} : ${allQuestions.questions[questionNumber].incorrect_answers[0]}
-										</label><label>
-										<input type="radio" name="question${0}" value="${0}">
-										${0} : ${allQuestions.questions[questionNumber].incorrect_answers[1]}
-										</label><label>
-										<input type="radio" name="question${0}" value="${0}">
-										${0} : ${allQuestions.questions[questionNumber].incorrect_answers[2]}
-										</label><strong>Question</strong <h3> ${allQuestions.questions[questionNumber].question} </h3>
-										<div id = "answers"><label>
-										<input type="radio" name="question${0}" value="${0}">
-										${0} : ${allQuestions.questions[questionNumber].incorrect_answers[0]}
-										</label><label>
-										<input type="radio" name="question${0}" value="${0}">
-										${0} : ${allQuestions.questions[questionNumber].incorrect_answers[1]}
-										</label><label>
-										<input type="radio" name="question${0}" value="${0}">
-										${0} : ${allQuestions.questions[questionNumber].incorrect_answers[2]}
-										</label></div><button id="next-button"> nextforreal </button>
-
-										 <a href=\"http://www.blackcatdc.com\">Submit</a> <a href=\"http://www.exitclov.com\" target=\"_blank\" title=\"Opens in a new window\">Next</a> and <a href=\"http://godsilla.bandcamp.com\" target=\"_blank\" title=\"Opens in a new window\">Gods’illa</a>. 9:00 p.m. $12.`,
+										``,
 										"icon": "music"
 									},
 									"geometry": {
@@ -236,7 +204,7 @@ $loadQuestion = function(allQuestions, questionNumber, cords){
               "layout": {
                   "text-field": "{title}",
                   "icon-image": allQuestions.questions[questionNumber]._id,
-                  "icon-size": 0.25
+                  "icon-size": 0.5
               },
 							"message": "Baz",
 							"iconSize": [40, 40]
@@ -258,18 +226,7 @@ $loadQuestion = function(allQuestions, questionNumber, cords){
 									"type": "Feature",
 									"properties": {
 										"description":
-										`<strong>Question</strong <h3> ${allQuestions.questions[1].question} </h3>
-										<div id = "answers"><label>
-										<input type="radio" name="question${0}" value="${0}">
-										${0} : ${allQuestions.questions[questionNumber].incorrect_answers[0]}
-										</label><label>
-										<input type="radio" data-answer="true" name="question${0}" value="${0}">
-										${0} : ${allQuestions.questions[questionNumber].incorrect_answers[1]}
-										</label><label>
-										<input type="radio" name="question${0}" value="${0}">
-										${0} : ${allQuestions.questions[questionNumber].incorrect_answers[2]}
-										</label></div><button id="next-button"> nextforreal </button>
-										 <a href=\"http://www.blackcatdc.com\">Submit</a> <a href=\"http://www.exitclov.com\" target=\"_blank\" title=\"Opens in a new window\">Next</a> and <a href=\"http://godsilla.bandcamp.com\" target=\"_blank\" title=\"Opens in a new window\">Gods’illa</a>. 9:00 p.m. $12.`,
+										``,
 										"icon": "music"
 									},
 									"geometry": {
@@ -282,7 +239,7 @@ $loadQuestion = function(allQuestions, questionNumber, cords){
 							"layout": {
 									"text-field": "{title}",
 									"icon-image": allQuestions.questions[1]._id,
-									"icon-size": 0.25,
+									"icon-size": 0.5,
 									"visibility": "none"
 							},
 								"message": "Baz",
@@ -313,36 +270,36 @@ $loadQuestion = function(allQuestions, questionNumber, cords){
 						// 		window.alert("Hello it's me");
 						// });
 
-					var buttonTest = document.createElement('input');
-					buttonTest.type = "submit";
-					buttonTest.addEventListener('click', function(){
-						window.alert("Hope this works");
-					});
+					// var buttonTest = document.createElement('input');
+					// buttonTest.type = "submit";
+					// buttonTest.addEventListener('click', function(){
+					// 	window.alert("Hope this works");
+					// });
 
-					var buttonTest2 = "<script> window.alert(23) </script> <button> my button </button>";
+					//var buttonTest2 = "<script> window.alert(23) </script> <button> my button </button>";
 					// buttonTest2.addEventListener('click', function(){
 					// 	window.alert('tttteeessstttt');
 					// })
 
-					console.log(buttonTest2);
+					// console.log(buttonTest2);
 
 
 
-					form2 = `<form>
-					<strong>Question</strong <h3> ${allQuestions.questions[1].question} </h3>
-					<div id = "answers"><label>
-					<input type="radio" name="question${0}" value="${0}">
-					${0} : ${allQuestions.questions[questionNumber].incorrect_answers[0]}
-					</label><label>
-					<input type="radio" data-answer="true" name="question${0}" value="${0}">
-					${0} : ${allQuestions.questions[questionNumber].incorrect_answers[1]}
-					</label><label>
-					<input type="radio" name="question${0}" value="${0}">
-					${0} : ${allQuestions.questions[questionNumber].incorrect_answers[2]}
-					</label></div><input type='submit' id="next-button"> </input> ${buttonTest2};
-					</form>`;
-
-					description = form2;
+					// form2 = `<form>
+					// <strong>Question</strong <h3> ${allQuestions.questions[1].question} </h3>
+					// <div id = "answers"><label>
+					// <input type="radio" name="question${0}" value="${0}">
+					// ${0} : ${allQuestions.questions[questionNumber].incorrect_answers[0]}
+					// </label><label>
+					// <input type="radio" data-answer="true" name="question${0}" value="${0}">
+					// ${0} : ${allQuestions.questions[questionNumber].incorrect_answers[1]}
+					// </label><label>
+					// <input type="radio" name="question${0}" value="${0}">
+					// ${0} : ${allQuestions.questions[questionNumber].incorrect_answers[2]}
+					// </label></div><input type='submit' id="next-button"> </input> ${buttonTest2};
+					// </form>`;
+          //
+					// description = form2;
 
 
 
@@ -361,14 +318,14 @@ $loadQuestion = function(allQuestions, questionNumber, cords){
 				while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
 						coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
 				}
-				var h1 = document.createElement('h1');
-				h1.innerHTML="Hello, World";
-				//popup.setDOMContent(h1);
-				var buttonTest = document.createElement('input');
-				buttonTest.type = "submit";
-				buttonTest.addEventListener('click', function(){
-					window.alert("Hope this works");
-				});
+				// var h1 = document.createElement('h1');
+				// h1.innerHTML="Hello, World";
+				// //popup.setDOMContent(h1);
+				// var buttonTest = document.createElement('input');
+				// buttonTest.type = "submit";
+				// buttonTest.addEventListener('click', function(){
+				// 	window.alert("Hope this works");
+				// });
 				// this is where the question starts!!!!
 
 				var createForm = document.createElement('form');
