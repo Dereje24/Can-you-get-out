@@ -155,40 +155,7 @@ $loadQuestion = function(allQuestions, questionNumber, cords){
 									"title": "Tribe 1",
 									"type": "Feature",
 									"properties": {
-										"description":
-										`<strong>Question</strong <h3> ${allQuestions.questions[questionNumber].question} </h3>
-										<div id = "answers"><label>
-										<input type="radio" name="question${0}" value="${0}">
-										${0} : ${allQuestions.questions[questionNumber].incorrect_answers[0]}
-										</label><label>
-										<input type="radio" name="question${0}" value="${0}">
-										${0} : ${allQuestions.questions[questionNumber].incorrect_answers[1]}
-										</label><label>
-										<input type="radio" name="question${0}" value="${0}">
-										${0} : ${allQuestions.questions[questionNumber].incorrect_answers[2]}
-										</label><strong>Question</strong <h3> ${allQuestions.questions[questionNumber].question} </h3>
-										<div id = "answers"><label>
-										<input type="radio" name="question${0}" value="${0}">
-										${0} : ${allQuestions.questions[questionNumber].incorrect_answers[0]}
-										</label><label>
-										<input type="radio" name="question${0}" value="${0}">
-										${0} : ${allQuestions.questions[questionNumber].incorrect_answers[1]}
-										</label><label>
-										<input type="radio" name="question${0}" value="${0}">
-										${0} : ${allQuestions.questions[questionNumber].incorrect_answers[2]}
-										</label><strong>Question</strong <h3> ${allQuestions.questions[questionNumber].question} </h3>
-										<div id = "answers"><label>
-										<input type="radio" name="question${0}" value="${0}">
-										${0} : ${allQuestions.questions[questionNumber].incorrect_answers[0]}
-										</label><label>
-										<input type="radio" name="question${0}" value="${0}">
-										${0} : ${allQuestions.questions[questionNumber].incorrect_answers[1]}
-										</label><label>
-										<input type="radio" name="question${0}" value="${0}">
-										${0} : ${allQuestions.questions[questionNumber].incorrect_answers[2]}
-										</label></div><button id="next-button"> nextforreal </button>
-
-										 <a href=\"http://www.blackcatdc.com\">Submit</a> <a href=\"http://www.exitclov.com\" target=\"_blank\" title=\"Opens in a new window\">Next</a> and <a href=\"http://godsilla.bandcamp.com\" target=\"_blank\" title=\"Opens in a new window\">Gods’illa</a>. 9:00 p.m. $12.`,
+										"description",
 										"icon": "music"
 									},
 									"geometry": {
@@ -223,19 +190,7 @@ $loadQuestion = function(allQuestions, questionNumber, cords){
 									"title": "Tribe 1",
 									"type": "Feature",
 									"properties": {
-										"description":
-										`<strong>Question</strong <h3> ${allQuestions.questions[1].question} </h3>
-										<div id = "answers"><label>
-										<input type="radio" name="question${0}" value="${0}">
-										${0} : ${allQuestions.questions[questionNumber].incorrect_answers[0]}
-										</label><label>
-										<input type="radio" data-answer="true" name="question${0}" value="${0}">
-										${0} : ${allQuestions.questions[questionNumber].incorrect_answers[1]}
-										</label><label>
-										<input type="radio" name="question${0}" value="${0}">
-										${0} : ${allQuestions.questions[questionNumber].incorrect_answers[2]}
-										</label></div><button id="next-button"> nextforreal </button>
-										 <a href=\"http://www.blackcatdc.com\">Submit</a> <a href=\"http://www.exitclov.com\" target=\"_blank\" title=\"Opens in a new window\">Next</a> and <a href=\"http://godsilla.bandcamp.com\" target=\"_blank\" title=\"Opens in a new window\">Gods’illa</a>. 9:00 p.m. $12.`,
+										"description",
 										"icon": "music"
 									},
 									"geometry": {
@@ -270,19 +225,7 @@ $loadQuestion = function(allQuestions, questionNumber, cords){
 									"title": "Tribe 1",
 									"type": "Feature",
 									"properties": {
-										"description":
-										`<strong>Question</strong <h3> ${allQuestions.questions[2].question} </h3>
-										<div id = "answers"><label>
-										<input type="radio" name="question${0}" value="${0}">
-										${0} : ${allQuestions.questions[questionNumber].incorrect_answers[0]}
-										</label><label>
-										<input type="radio" data-answer="true" name="question${0}" value="${0}">
-										${0} : ${allQuestions.questions[questionNumber].incorrect_answers[1]}
-										</label><label>
-										<input type="radio" name="question${0}" value="${0}">
-										${0} : ${allQuestions.questions[questionNumber].incorrect_answers[2]}
-										</label></div><button id="next-button"> nextforreal </button>
-										 <a href=\"http://www.blackcatdc.com\">Submit</a> <a href=\"http://www.exitclov.com\" target=\"_blank\" title=\"Opens in a new window\">Next</a> and <a href=\"http://godsilla.bandcamp.com\" target=\"_blank\" title=\"Opens in a new window\">Gods’illa</a>. 9:00 p.m. $12.`,
+										"description",
 										"icon": "music"
 									},
 									"geometry": {
@@ -320,101 +263,6 @@ $loadQuestion = function(allQuestions, questionNumber, cords){
 				while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
 						coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
 				}
-
-				// this is where the question starts!!!!
-				//
-				// for(var j = 0; j < allQuestions.questions.length; j++ )
-				// {
-				//
-				//
-				//
-				// var createForm = document.createElement('form');
-				// createForm.setAttribute('action', '');
-				// createForm.setAttribute('method', 'get');
-				//
-				// var questionLable = document.createElement('lable');
-				// questionLable.innerHTML = allQuestions.questions[j].question;
-				// createForm.appendChild(questionLable);
-				//
-				// var lineBreak = document.createElement('br');
-				// createForm.appendChild(lineBreak);
-				//
-				// var inputElement = document.createElement('input');
-				// inputElement.innerHTML = 'Hello';
-				// inputElement.setAttribute('type', 'radio');
-				// inputElement.setAttribute('name', 'question');
-				// inputElement.setAttribute('value', allQuestions.questions[j].incorrect_answers[0]);
-				// createForm.appendChild(inputElement);
-				//
-				// var lable0 = document.createElement('lable');
-				// lable0.innerHTML = allQuestions.questions[j].incorrect_answers[0];
-				// createForm.appendChild(lable0);
-				// $(inputElement).on('change', function() {
-				// 	lable0.style.color = "red";
-				// });
-				//
-				// var lineBreak = document.createElement('br');
-				// createForm.appendChild(lineBreak);
-				//
-				// var inputElement = document.createElement('input');
-				// inputElement.setAttribute('type', 'radio');
-				// inputElement.setAttribute('name', 'question');
-				// createForm.appendChild(inputElement);
-				//
-				// var lable1 = document.createElement('lable');
-				// lable1.innerHTML = allQuestions.questions[j].incorrect_answers[1];
-				// createForm.appendChild(lable1);
-				// $(inputElement).on('change', function() {
-				// 	lable1.style.color = "red";
-				// });
-				//
-				// var lineBreak = document.createElement('br');
-				// createForm.appendChild(lineBreak);
-				//
-				// var inputElement = document.createElement('input');
-				// inputElement.setAttribute('type', 'radio');
-				// inputElement.setAttribute('name', 'question');
-				// createForm.appendChild(inputElement);
-				//
-				// var lable2 = document.createElement('lable');
-				// lable2.innerHTML = allQuestions.questions[j].incorrect_answers[2];
-				// createForm.appendChild(lable2);
-				// $(inputElement).on('change', function() {
-				// 	lable2.style.color = "red";
-				// });
-				// var lineBreak = document.createElement('br');
-				// createForm.appendChild(lineBreak);
-				//
-				// var inputElement = document.createElement('input');
-				// inputElement.setAttribute('type', 'radio');
-				// inputElement.setAttribute('name', 'question');
-				// createForm.appendChild(inputElement);
-				//
-				// var lable = document.createElement('lable');
-				// lable.innerHTML = allQuestions.questions[j].correct_answer;
-				// createForm.appendChild(lable);
-				// $(inputElement).on('change', function() {
-				// 	lable.style.color = "lightgreen";
-				// 	$("#next-question").removeClass("hidden");
-				// });
-				//
-				// var lineBreak = document.createElement('br');
-				// createForm.appendChild(lineBreak);
-				//
-				// formsArray.form = createForm;
-				//
-				// console.log(formsArray.form);
-				//
-				//
-				//
-				// 	}
-					//
-					// new mapboxgl.Popup()
-					// 		.setLngLat(coordinates)
-					// 		.setDOMContent(createForm)
-					// 		.addTo(map);
-
-
 		});
 
 	}

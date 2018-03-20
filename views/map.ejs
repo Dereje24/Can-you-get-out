@@ -35,21 +35,6 @@
     <label for='satellite'>satellite</label> -->
 </div>
 
-<div class="">
-  <% for (let question of quiz) { %>
-      <li class="list-group-item post" data-id="<%= question._id %>">
-      <!-- post label (title) -->
-    <a href="/api/questions/<%= question._id %>" class="label label-default"><%= question.question %></a>
-               <!-- post description -->
-      <%= question.answer %>
-
-      <% } %>
-
-</div>
-
-<script>
-
-</script>
 
 </body>
 
