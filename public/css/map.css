@@ -21,9 +21,9 @@ body {
 
 /* infowindow */
 .mapboxgl-popup {
-        max-width: 900px;
-        height: 900px;
+        max-width: 400px;
         font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+        
     }
 
 
@@ -31,8 +31,9 @@ body {
   display: none;
 }
 form{
-  height: 400px;
+  height: 250px;
   color: white;
+  font-size: 24px;
   background-repeat: no-repeat;
   background-image: url('https://mojtv.hr/thumb.ashx?path=/images/c53d5b03-d113-4344-aaf2-5430453b56a6.jpg&w=491&h=250');
 }

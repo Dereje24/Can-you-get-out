@@ -442,8 +442,6 @@ $loadQuestion = function(allQuestions, questionNumber, cords){
 					//console.log('is it in the right place?');
 				});
 
-
-
 				var lineBreak = document.createElement('br');
 				createForm.appendChild(lineBreak);
 
