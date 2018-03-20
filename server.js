@@ -29,9 +29,10 @@ app.use(function(req, res, next) {
 
 //HTML ENDPOINTS
 app.get('/', function homepage(req, res) {
-  res.sendFile(__dirname + '/views/index.html');
+  res.sendFile(__dirname + '/views/landing.html');
 });
 
+//changed above endpoint to go to landing html...we can remove this, or replace index.html with landing.html
 app.get('/landing', function homepage(req, res) {
   res.sendFile(__dirname + '/views/landing.html');
 });
@@ -41,6 +42,12 @@ app.get('/background_test', function homepage(req, res) {
 });
 
 app.get("/quiz", controller.questions.list);
+
+//testing map_test
+app.get('/map_test', function homepage(req, res) {
+  res.sendFile(__dirname + '/views/map_test.html');
+});
+
 
 //JSON API ENDPOINTS
 

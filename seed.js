@@ -1,5 +1,7 @@
 var db = require('./models');
-
+var quiz1 = [
+  
+]
 var question_list = [
   {
   category: "Science: Computers",

@@ -61,10 +61,6 @@ var allQuestions = {};
 var cords1 = [-83.765, 34.974];
 var cords2 = [-84.765, 39.974];
 var cords3 = [-74.0066, 40.7135];
-var bounds1 = [
-    [-84.04728500751165, 34.68392799015035], // Southwest coordinates
-    [-83.6058699000139, 35.07764500765852]  // Northeast coordinates
-];
 var newCenter;
 
 var icon1 = "icon1";
@@ -194,39 +190,7 @@ $loadQuestion = function(allQuestions, questionNumber, cords){
 									"type": "Feature",
 									"properties": {
 										"description":
-										`<strong>Question</strong <h3> ${allQuestions.questions[questionNumber].question} </h3>
-										<div id = "answers"><label>
-										<input type="radio" name="question${0}" value="${0}">
-										${0} : ${allQuestions.questions[questionNumber].incorrect_answers[0]}
-										</label><label>
-										<input type="radio" name="question${0}" value="${0}">
-										${0} : ${allQuestions.questions[questionNumber].incorrect_answers[1]}
-										</label><label>
-										<input type="radio" name="question${0}" value="${0}">
-										${0} : ${allQuestions.questions[questionNumber].incorrect_answers[2]}
-										</label><strong>Question</strong <h3> ${allQuestions.questions[questionNumber].question} </h3>
-										<div id = "answers"><label>
-										<input type="radio" name="question${0}" value="${0}">
-										${0} : ${allQuestions.questions[questionNumber].incorrect_answers[0]}
-										</label><label>
-										<input type="radio" name="question${0}" value="${0}">
-										${0} : ${allQuestions.questions[questionNumber].incorrect_answers[1]}
-										</label><label>
-										<input type="radio" name="question${0}" value="${0}">
-										${0} : ${allQuestions.questions[questionNumber].incorrect_answers[2]}
-										</label><strong>Question</strong <h3> ${allQuestions.questions[questionNumber].question} </h3>
-										<div id = "answers"><label>
-										<input type="radio" name="question${0}" value="${0}">
-										${0} : ${allQuestions.questions[questionNumber].incorrect_answers[0]}
-										</label><label>
-										<input type="radio" name="question${0}" value="${0}">
-										${0} : ${allQuestions.questions[questionNumber].incorrect_answers[1]}
-										</label><label>
-										<input type="radio" name="question${0}" value="${0}">
-										${0} : ${allQuestions.questions[questionNumber].incorrect_answers[2]}
-										</label></div><button id="next-button"> nextforreal </button>
-
-										 <a href=\"http://www.blackcatdc.com\">Submit</a> <a href=\"http://www.exitclov.com\" target=\"_blank\" title=\"Opens in a new window\">Next</a> and <a href=\"http://godsilla.bandcamp.com\" target=\"_blank\" title=\"Opens in a new window\">Gods’illa</a>. 9:00 p.m. $12.`,
+										``,
 										"icon": "music"
 									},
 									"geometry": {
@@ -240,7 +204,7 @@ $loadQuestion = function(allQuestions, questionNumber, cords){
               "layout": {
                   "text-field": "{title}",
                   "icon-image": allQuestions.questions[questionNumber]._id,
-                  "icon-size": 0.25
+                  "icon-size": 0.5
               },
 							"message": "Baz",
 							"iconSize": [40, 40]
@@ -262,18 +226,7 @@ $loadQuestion = function(allQuestions, questionNumber, cords){
 									"type": "Feature",
 									"properties": {
 										"description":
-										`<strong>Question</strong <h3> ${allQuestions.questions[1].question} </h3>
-										<div id = "answers"><label>
-										<input type="radio" name="question${0}" value="${0}">
-										${0} : ${allQuestions.questions[questionNumber].incorrect_answers[0]}
-										</label><label>
-										<input type="radio" data-answer="true" name="question${0}" value="${0}">
-										${0} : ${allQuestions.questions[questionNumber].incorrect_answers[1]}
-										</label><label>
-										<input type="radio" name="question${0}" value="${0}">
-										${0} : ${allQuestions.questions[questionNumber].incorrect_answers[2]}
-										</label></div><button id="next-button"> nextforreal </button>
-										 <a href=\"http://www.blackcatdc.com\">Submit</a> <a href=\"http://www.exitclov.com\" target=\"_blank\" title=\"Opens in a new window\">Next</a> and <a href=\"http://godsilla.bandcamp.com\" target=\"_blank\" title=\"Opens in a new window\">Gods’illa</a>. 9:00 p.m. $12.`,
+										``,
 										"icon": "music"
 									},
 									"geometry": {
@@ -286,58 +239,11 @@ $loadQuestion = function(allQuestions, questionNumber, cords){
 							"layout": {
 									"text-field": "{title}",
 									"icon-image": allQuestions.questions[1]._id,
-									"icon-size": 0.25,
+									"icon-size": 0.5,
 									"visibility": "none"
 							},
 								"message": "Baz",
                 "iconSize": [40, 40]
-					});
-			});
-
-			map.loadImage('/images/logo4.png', function(error, image) {
-					if (error) throw error;
-					map.addImage(allQuestions.questions[2]._id, image);
-					map.addLayer({
-						"id": allQuestions.questions[2]._id,
-						"type": "symbol",
-						"source": {
-							"type": "geojson",
-							"data": {
-								"type": "FeatureCollection",
-								"features": [{
-									"title": "Tribe 1",
-									"type": "Feature",
-									"properties": {
-										"description":
-										`<strong>Question</strong <h3> ${allQuestions.questions[2].question} </h3>
-										<div id = "answers"><label>
-										<input type="radio" name="question${0}" value="${0}">
-										${0} : ${allQuestions.questions[questionNumber].incorrect_answers[0]}
-										</label><label>
-										<input type="radio" data-answer="true" name="question${0}" value="${0}">
-										${0} : ${allQuestions.questions[questionNumber].incorrect_answers[1]}
-										</label><label>
-										<input type="radio" name="question${0}" value="${0}">
-										${0} : ${allQuestions.questions[questionNumber].incorrect_answers[2]}
-										</label></div><button id="next-button"> nextforreal </button>
-										 <a href=\"http://www.blackcatdc.com\">Submit</a> <a href=\"http://www.exitclov.com\" target=\"_blank\" title=\"Opens in a new window\">Next</a> and <a href=\"http://godsilla.bandcamp.com\" target=\"_blank\" title=\"Opens in a new window\">Gods’illa</a>. 9:00 p.m. $12.`,
-										"icon": "music"
-									},
-									"geometry": {
-										"type": "Point",
-										"coordinates": cords3
-									}
-											}]
-									}
-							},
-							"layout": {
-									"text-field": "{title}",
-									"icon-image": allQuestions.questions[2]._id,
-									"icon-size": 1,
-									"visibility": "none"
-							},
-								"message": "Baz",
-								"iconSize": [40, 40]
 					});
 			});
 
@@ -346,7 +252,7 @@ $loadQuestion = function(allQuestions, questionNumber, cords){
       // When a click event occurs on a feature in the places layer, open a popup at the
   // location of the feature, with description HTML from its properties.
 
-	for ( var i = 0; i < 3; i++)
+	for ( var i = 0; i < 2; i++)
 	{
 		map.on('click', allQuestions.questions[i]._id, function (e) {
 				var coordinates = e.features[0].geometry.coordinates.slice();
@@ -364,36 +270,36 @@ $loadQuestion = function(allQuestions, questionNumber, cords){
 						// 		window.alert("Hello it's me");
 						// });
 
-					var buttonTest = document.createElement('input');
-					buttonTest.type = "submit";
-					buttonTest.addEventListener('click', function(){
-						window.alert("Hope this works");
-					});
+					// var buttonTest = document.createElement('input');
+					// buttonTest.type = "submit";
+					// buttonTest.addEventListener('click', function(){
+					// 	window.alert("Hope this works");
+					// });
 
-					var buttonTest2 = "<script> window.alert(23) </script> <button> my button </button>";
+					//var buttonTest2 = "<script> window.alert(23) </script> <button> my button </button>";
 					// buttonTest2.addEventListener('click', function(){
 					// 	window.alert('tttteeessstttt');
 					// })
 
-					console.log(buttonTest2);
+					// console.log(buttonTest2);
 
 
 
-					form2 = `<form>
-					<strong>Question</strong <h3> ${allQuestions.questions[1].question} </h3>
-					<div id = "answers"><label>
-					<input type="radio" name="question${0}" value="${0}">
-					${0} : ${allQuestions.questions[questionNumber].incorrect_answers[0]}
-					</label><label>
-					<input type="radio" data-answer="true" name="question${0}" value="${0}">
-					${0} : ${allQuestions.questions[questionNumber].incorrect_answers[1]}
-					</label><label>
-					<input type="radio" name="question${0}" value="${0}">
-					${0} : ${allQuestions.questions[questionNumber].incorrect_answers[2]}
-					</label></div><input type='submit' id="next-button"> </input> ${buttonTest2};
-					</form>`;
-
-					description = form2;
+					// form2 = `<form>
+					// <strong>Question</strong <h3> ${allQuestions.questions[1].question} </h3>
+					// <div id = "answers"><label>
+					// <input type="radio" name="question${0}" value="${0}">
+					// ${0} : ${allQuestions.questions[questionNumber].incorrect_answers[0]}
+					// </label><label>
+					// <input type="radio" data-answer="true" name="question${0}" value="${0}">
+					// ${0} : ${allQuestions.questions[questionNumber].incorrect_answers[1]}
+					// </label><label>
+					// <input type="radio" name="question${0}" value="${0}">
+					// ${0} : ${allQuestions.questions[questionNumber].incorrect_answers[2]}
+					// </label></div><input type='submit' id="next-button"> </input> ${buttonTest2};
+					// </form>`;
+          //
+					// description = form2;
 
 
 
@@ -412,14 +318,14 @@ $loadQuestion = function(allQuestions, questionNumber, cords){
 				while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
 						coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
 				}
-				var h1 = document.createElement('h1');
-				h1.innerHTML="Hello, World";
-				//popup.setDOMContent(h1);
-				var buttonTest = document.createElement('input');
-				buttonTest.type = "submit";
-				buttonTest.addEventListener('click', function(){
-					window.alert("Hope this works");
-				});
+				// var h1 = document.createElement('h1');
+				// h1.innerHTML="Hello, World";
+				// //popup.setDOMContent(h1);
+				// var buttonTest = document.createElement('input');
+				// buttonTest.type = "submit";
+				// buttonTest.addEventListener('click', function(){
+				// 	window.alert("Hope this works");
+				// });
 				// this is where the question starts!!!!
 
 				var createForm = document.createElement('form');
@@ -599,7 +505,7 @@ $("#wakanda").on("click", function(){
 	// $loadQuestion(allProjects, 1, cords2);
 
 	map.flyTo({
-			 center: cords3,
+			 center: [-74.0066, 40.7135],
 			 pitch: 45,
 			 hash: true,
 				bearing: -17.6,
@@ -607,7 +513,6 @@ $("#wakanda").on("click", function(){
 	 });
 
 	 map.setLayoutProperty("road2", 'visibility', 'visible');
-	 map.setLayoutProperty(allQuestions.questions[2]._id, 'visibility', 'visible');
 
 
 })
