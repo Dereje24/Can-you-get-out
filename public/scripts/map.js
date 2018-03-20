@@ -326,23 +326,7 @@ $loadQuestion = function(allQuestions, questionNumber, cords){
 
 					console.log(buttonTest2);
 
-					$(form2).on('submit', function(e){
-						console.log('hi');
-						e.preventDefault();
-						e.stopPropagation();
 
-					ajax({
-						method: 'GET',
-						url: '/api/questions',
-						data: 'question.id',
-						success: validateSuccess,
-						error: error
-					});
-					function validateSuccess(res){
-						console.log('this works');
-						//res.send('hello');
-					};
-				});
 
 					form2 = `<form>
 					<strong>Question</strong <h3> ${allQuestions.questions[1].question} </h3>
@@ -385,10 +369,93 @@ $loadQuestion = function(allQuestions, questionNumber, cords){
 				buttonTest.addEventListener('click', function(){
 					window.alert("Hope this works");
 				});
+				// this is where the question starts!!!!
+
+				var createForm = document.createElement('form');
+				createForm.setAttribute('action', '');
+				createForm.setAttribute('method', 'get');
+
+				var questionLable = document.createElement('lable');
+				questionLable.innerHTML = allQuestions.questions[1].question;
+				createForm.appendChild(questionLable);
+
+				var lineBreak = document.createElement('br');
+				createForm.appendChild(lineBreak);
+
+				var inputElement = document.createElement('input');
+				inputElement.innerHTML = 'Hello';
+				inputElement.setAttribute('type', 'radio');
+				inputElement.setAttribute('name', 'question');
+				createForm.appendChild(inputElement);
+
+				var lable = document.createElement('lable');
+				lable.innerHTML = allQuestions.questions[questionNumber].incorrect_answers[0];
+				createForm.appendChild(lable);
+
+				var lineBreak = document.createElement('br');
+				createForm.appendChild(lineBreak);
+
+				var inputElement = document.createElement('input');
+				inputElement.setAttribute('type', 'radio');
+				inputElement.setAttribute('name', 'question');
+				createForm.appendChild(inputElement);
+
+				var lable = document.createElement('lable');
+				lable.innerHTML = allQuestions.questions[questionNumber].incorrect_answers[1];
+				createForm.appendChild(lable);
+
+				var lineBreak = document.createElement('br');
+				createForm.appendChild(lineBreak);
+
+				var inputElement = document.createElement('input');
+				inputElement.setAttribute('type', 'radio');
+				inputElement.setAttribute('name', 'question');
+				createForm.appendChild(inputElement);
+
+				var lable = document.createElement('lable');
+				lable.innerHTML = allQuestions.questions[questionNumber].incorrect_answers[2];
+				createForm.appendChild(lable);
+
+				var lineBreak = document.createElement('br');
+				createForm.appendChild(lineBreak);
+
+				var inputElement = document.createElement('input');
+				inputElement.setAttribute('type', 'radio');
+				inputElement.setAttribute('name', 'question');
+				createForm.appendChild(inputElement);
+
+				var lable = document.createElement('lable');
+				lable.innerHTML = allQuestions.questions[questionNumber].correct_answer;
+				createForm.appendChild(lable);
+
+				var lineBreak = document.createElement('br');
+				createForm.appendChild(lineBreak);
+
+				var submitElement = document.createElement('input');
+				submitElement.setAttribute('type', 'submit');
+				createForm.appendChild(submitElement);
+
+				$(createForm).on('submit', function(e){
+					console.log('hi');
+					e.preventDefault();
+					e.stopPropagation();
+
+				$.ajax({
+					method: 'GET',
+					url: '/api/questions',
+					data: 'question.id',
+					success: validateSuccess
+				});
+				function validateSuccess(res){
+					console.log('this works');
+					//res.send('hello');
+				};
+			});
+
 				new mapboxgl.Popup()
 						.setLngLat(coordinates)
-						.setDOMContent(form2)
-						//.setHTML(description)
+						.setHTML(description)
+						.setDOMContent(createForm)
 						.addTo(map);
 		});
 
