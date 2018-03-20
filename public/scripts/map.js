@@ -173,7 +173,7 @@ $loadQuestion = function(allQuestions, questionNumber, cords){
 
 
 
-      map.loadImage('http://localhost:3000/images/logo4.png', function(error, image) {
+      map.loadImage('/images/logo4.png', function(error, image) {
           if (error) throw error;
           map.addImage(allQuestions.questions[questionNumber]._id, image);
           map.addLayer({
@@ -243,7 +243,7 @@ $loadQuestion = function(allQuestions, questionNumber, cords){
           });
       });
 			// $(selector).data('answer') // => true
-			map.loadImage('http://localhost:3000/images/logo4.png', function(error, image) {
+			map.loadImage('/images/logo4.png', function(error, image) {
 					if (error) throw error;
 					map.addImage(allQuestions.questions[1]._id, image);
 					map.addLayer({
