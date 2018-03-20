@@ -49,7 +49,8 @@ module.exports = {
   //HTML endpoint to start the quiz ( list all questions)
 
   list: function(req, res){
-    // console.log(db);
+
+    // console.log("HIT THE LIST");
     db.Question.find({}, function(err, allQuestions){
       if(err){res.status(500).json({"ERROR":"Database Error"});}
       console.log("allQuestions: \n", allQuestions);

@@ -36,7 +36,44 @@ var question_list = [
     "Pollux",
     "Saturn"
   ]
-  }
+  },
+  {
+      "category": "Science: Computers",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "This mobile OS held the largest market share in 2012.",
+      "correct_answer": "iOS",
+      "incorrect_answers": [
+        "Android",
+        "BlackBerry",
+        "Symbian"
+      ]
+    },
+    {
+      "category": "Science: Computers",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "How many values can a single byte represent?",
+      "correct_answer": "256",
+      "incorrect_answers": [
+        "8",
+        "1",
+        "1024"
+      ]
+    },
+    {
+      "category": "Science: Computers",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "Which computer hardware device provides an interface for all other connected devices to communicate?",
+      "correct_answer": "Motherboard",
+      "incorrect_answers": [
+        "Central Processing Unit",
+        "Hard Disk Drive",
+        "Random Access Memory"
+      ]
+    },
+
 ];
 
 db.Question.remove({}, function(err, questions){
