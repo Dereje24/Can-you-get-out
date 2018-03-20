@@ -29,3 +29,11 @@ body {
 .hidden{
   display: none;
 }
+
+form{
+  height: 250px;
+  color: white;
+  font-size: 24px;
+  background-repeat: no-repeat;
+  background-image: url('https://mojtv.hr/thumb.ashx?path=/images/c53d5b03-d113-4344-aaf2-5430453b56a6.jpg&w=491&h=250');
+}
