@@ -7,7 +7,7 @@ var express = require('express'),
 
 
 // CONFIGURE APP
-app.use(bodyParser.urlencoded({ extended: true}));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // serve static files from public folder
 app.use(express.static(__dirname + '/public'));
@@ -29,7 +29,7 @@ app.use(function(req, res, next) {
 
 //HTML ENDPOINTS
 app.get('/', function homepage(req, res) {
-  res.sendFile(__dirname + '/views/landing.html');
+  res.sendFile(__dirname + '/views/index.html');
 });
 
 //changed above endpoint to go to landing html...we can remove this, or replace index.html with landing.html
