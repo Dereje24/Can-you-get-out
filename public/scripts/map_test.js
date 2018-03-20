@@ -270,36 +270,36 @@ $loadQuestion = function(allQuestions, questionNumber, cords){
 						// 		window.alert("Hello it's me");
 						// });
 
-					var buttonTest = document.createElement('input');
-					buttonTest.type = "submit";
-					buttonTest.addEventListener('click', function(){
-						window.alert("Hope this works");
-					});
+					// var buttonTest = document.createElement('input');
+					// buttonTest.type = "submit";
+					// buttonTest.addEventListener('click', function(){
+					// 	window.alert("Hope this works");
+					// });
 
-					var buttonTest2 = "<script> window.alert(23) </script> <button> my button </button>";
+					//var buttonTest2 = "<script> window.alert(23) </script> <button> my button </button>";
 					// buttonTest2.addEventListener('click', function(){
 					// 	window.alert('tttteeessstttt');
 					// })
 
-					console.log(buttonTest2);
+					// console.log(buttonTest2);
 
 
 
-					form2 = `<form>
-					<strong>Question</strong <h3> ${allQuestions.questions[1].question} </h3>
-					<div id = "answers"><label>
-					<input type="radio" name="question${0}" value="${0}">
-					${0} : ${allQuestions.questions[questionNumber].incorrect_answers[0]}
-					</label><label>
-					<input type="radio" data-answer="true" name="question${0}" value="${0}">
-					${0} : ${allQuestions.questions[questionNumber].incorrect_answers[1]}
-					</label><label>
-					<input type="radio" name="question${0}" value="${0}">
-					${0} : ${allQuestions.questions[questionNumber].incorrect_answers[2]}
-					</label></div><input type='submit' id="next-button"> </input> ${buttonTest2};
-					</form>`;
-
-					description = form2;
+					// form2 = `<form>
+					// <strong>Question</strong <h3> ${allQuestions.questions[1].question} </h3>
+					// <div id = "answers"><label>
+					// <input type="radio" name="question${0}" value="${0}">
+					// ${0} : ${allQuestions.questions[questionNumber].incorrect_answers[0]}
+					// </label><label>
+					// <input type="radio" data-answer="true" name="question${0}" value="${0}">
+					// ${0} : ${allQuestions.questions[questionNumber].incorrect_answers[1]}
+					// </label><label>
+					// <input type="radio" name="question${0}" value="${0}">
+					// ${0} : ${allQuestions.questions[questionNumber].incorrect_answers[2]}
+					// </label></div><input type='submit' id="next-button"> </input> ${buttonTest2};
+					// </form>`;
+          //
+					// description = form2;
 
 
 
@@ -318,14 +318,14 @@ $loadQuestion = function(allQuestions, questionNumber, cords){
 				while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
 						coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
 				}
-				var h1 = document.createElement('h1');
-				h1.innerHTML="Hello, World";
-				//popup.setDOMContent(h1);
-				var buttonTest = document.createElement('input');
-				buttonTest.type = "submit";
-				buttonTest.addEventListener('click', function(){
-					window.alert("Hope this works");
-				});
+				// var h1 = document.createElement('h1');
+				// h1.innerHTML="Hello, World";
+				// //popup.setDOMContent(h1);
+				// var buttonTest = document.createElement('input');
+				// buttonTest.type = "submit";
+				// buttonTest.addEventListener('click', function(){
+				// 	window.alert("Hope this works");
+				// });
 				// this is where the question starts!!!!
 
 				var createForm = document.createElement('form');
