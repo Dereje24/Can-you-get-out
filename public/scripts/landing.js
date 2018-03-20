@@ -1,10 +1,17 @@
-$(document).ready(function(){
-  console.log("ready!");
+$(document).ready(function () {
+    console.log("ready!");
 
-  // SideNav Button Initialization
-  $(".button-collapse").sideNav();
-  // SideNav Scrollbar Initialization
-  var sideNavScrollbar = document.querySelector('.custom-scrollbar');
-  Ps.initialize(sideNavScrollbar);
-  
+    $('#sidebarCollapse').on('click', function () {
+      console.log("button clicked!");
+      // $('#sidebar').toggleClass('active');
+    });
+
+    $("#sidebarCollapse").on('click', function() {
+        $('#sidebar').addClass('active');
+    });
+
+    $('#dismiss, .overlay').on('click', function () {
+        $('#sidebar').hide();
+    });
+
 });
