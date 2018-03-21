@@ -43,6 +43,10 @@ app.get('/background_test', function homepage(req, res) {
 
 app.get("/quiz", controller.questions.list);
 
+app.get('/marvel_quiz', function homepage(req, res) {
+  res.sendFile(__dirname + '/views/marvel_quiz.html');
+});
+
 //testing map_test
 app.get('/map_test', function homepage(req, res) {
   res.sendFile(__dirname + '/views/map_test.html');
