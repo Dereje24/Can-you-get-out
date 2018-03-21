@@ -23,17 +23,37 @@ body {
 .mapboxgl-popup {
         max-width: 400px;
         font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+
     }
 
 
 .hidden{
   display: none;
 }
-
 form{
   height: 250px;
   color: white;
   font-size: 24px;
   background-repeat: no-repeat;
-  background-image: url('https://mojtv.hr/thumb.ashx?path=/images/c53d5b03-d113-4344-aaf2-5430453b56a6.jpg&w=491&h=250');
+  background-image: url('https://thumbs.gfycat.com/CourageousInferiorGrouper-size_restricted.gif');
+}
+.getOutOne{
+  height: 250px;
+  color: white;
+  font-size: 24px;
+  background-repeat: no-repeat;
+  background-image: url('https://i.imgur.com/OBmCoqx.gif');
+}
+
+.getOutTwo{
+  height: 250px;
+  color: white;
+  font-size: 24px;
+  background-repeat: no-repeat;
+  background-image: url('https://media0.giphy.com/media/26gsv1iextbg5Gm5O/giphy.gif');
+}
+.seconds{
+  color: red;
+  font-size: 40px;
+  padding: 30px;  
 }

@@ -155,40 +155,7 @@ $loadQuestion = function(allQuestions, questionNumber, cords){
 									"title": "Tribe 1",
 									"type": "Feature",
 									"properties": {
-										"description":
-										`<strong>Question</strong <h3> ${allQuestions.questions[questionNumber].question} </h3>
-										<div id = "answers"><label>
-										<input type="radio" name="question${0}" value="${0}">
-										${0} : ${allQuestions.questions[questionNumber].incorrect_answers[0]}
-										</label><label>
-										<input type="radio" name="question${0}" value="${0}">
-										${0} : ${allQuestions.questions[questionNumber].incorrect_answers[1]}
-										</label><label>
-										<input type="radio" name="question${0}" value="${0}">
-										${0} : ${allQuestions.questions[questionNumber].incorrect_answers[2]}
-										</label><strong>Question</strong <h3> ${allQuestions.questions[questionNumber].question} </h3>
-										<div id = "answers"><label>
-										<input type="radio" name="question${0}" value="${0}">
-										${0} : ${allQuestions.questions[questionNumber].incorrect_answers[0]}
-										</label><label>
-										<input type="radio" name="question${0}" value="${0}">
-										${0} : ${allQuestions.questions[questionNumber].incorrect_answers[1]}
-										</label><label>
-										<input type="radio" name="question${0}" value="${0}">
-										${0} : ${allQuestions.questions[questionNumber].incorrect_answers[2]}
-										</label><strong>Question</strong <h3> ${allQuestions.questions[questionNumber].question} </h3>
-										<div id = "answers"><label>
-										<input type="radio" name="question${0}" value="${0}">
-										${0} : ${allQuestions.questions[questionNumber].incorrect_answers[0]}
-										</label><label>
-										<input type="radio" name="question${0}" value="${0}">
-										${0} : ${allQuestions.questions[questionNumber].incorrect_answers[1]}
-										</label><label>
-										<input type="radio" name="question${0}" value="${0}">
-										${0} : ${allQuestions.questions[questionNumber].incorrect_answers[2]}
-										</label></div><button id="next-button"> nextforreal </button>
-
-										 <a href=\"http://www.blackcatdc.com\">Submit</a> <a href=\"http://www.exitclov.com\" target=\"_blank\" title=\"Opens in a new window\">Next</a> and <a href=\"http://godsilla.bandcamp.com\" target=\"_blank\" title=\"Opens in a new window\">Gods’illa</a>. 9:00 p.m. $12.`,
+										"description": "",
 										"icon": "music"
 									},
 									"geometry": {
@@ -223,19 +190,7 @@ $loadQuestion = function(allQuestions, questionNumber, cords){
 									"title": "Tribe 1",
 									"type": "Feature",
 									"properties": {
-										"description":
-										`<strong>Question</strong <h3> ${allQuestions.questions[1].question} </h3>
-										<div id = "answers"><label>
-										<input type="radio" name="question${0}" value="${0}">
-										${0} : ${allQuestions.questions[questionNumber].incorrect_answers[0]}
-										</label><label>
-										<input type="radio" data-answer="true" name="question${0}" value="${0}">
-										${0} : ${allQuestions.questions[questionNumber].incorrect_answers[1]}
-										</label><label>
-										<input type="radio" name="question${0}" value="${0}">
-										${0} : ${allQuestions.questions[questionNumber].incorrect_answers[2]}
-										</label></div><button id="next-button"> nextforreal </button>
-										 <a href=\"http://www.blackcatdc.com\">Submit</a> <a href=\"http://www.exitclov.com\" target=\"_blank\" title=\"Opens in a new window\">Next</a> and <a href=\"http://godsilla.bandcamp.com\" target=\"_blank\" title=\"Opens in a new window\">Gods’illa</a>. 9:00 p.m. $12.`,
+										"description": "",
 										"icon": "music"
 									},
 									"geometry": {
@@ -270,19 +225,7 @@ $loadQuestion = function(allQuestions, questionNumber, cords){
 									"title": "Tribe 1",
 									"type": "Feature",
 									"properties": {
-										"description":
-										`<strong>Question</strong <h3> ${allQuestions.questions[2].question} </h3>
-										<div id = "answers"><label>
-										<input type="radio" name="question${0}" value="${0}">
-										${0} : ${allQuestions.questions[questionNumber].incorrect_answers[0]}
-										</label><label>
-										<input type="radio" data-answer="true" name="question${0}" value="${0}">
-										${0} : ${allQuestions.questions[questionNumber].incorrect_answers[1]}
-										</label><label>
-										<input type="radio" name="question${0}" value="${0}">
-										${0} : ${allQuestions.questions[questionNumber].incorrect_answers[2]}
-										</label></div><button id="next-button"> nextforreal </button>
-										 <a href=\"http://www.blackcatdc.com\">Submit</a> <a href=\"http://www.exitclov.com\" target=\"_blank\" title=\"Opens in a new window\">Next</a> and <a href=\"http://godsilla.bandcamp.com\" target=\"_blank\" title=\"Opens in a new window\">Gods’illa</a>. 9:00 p.m. $12.`,
+										"description":"",
 										"icon": "music"
 									},
 									"geometry": {
@@ -305,9 +248,9 @@ $loadQuestion = function(allQuestions, questionNumber, cords){
 
       // When a click event occurs on a feature in the places layer, open a popup at the
   // location of the feature, with description HTML from its properties.
+var getOutOne = "getOutOne";
 
-
-	createFormfunction(questionNumber, cords);
+	createFormfunction(questionNumber, cords, getOutOne);
 
 	for ( var i = 0; i < allQuestions.questions.length; i++)
 	{
@@ -320,101 +263,6 @@ $loadQuestion = function(allQuestions, questionNumber, cords){
 				while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
 						coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
 				}
-
-				// this is where the question starts!!!!
-				//
-				// for(var j = 0; j < allQuestions.questions.length; j++ )
-				// {
-				//
-				//
-				//
-				// var createForm = document.createElement('form');
-				// createForm.setAttribute('action', '');
-				// createForm.setAttribute('method', 'get');
-				//
-				// var questionLable = document.createElement('lable');
-				// questionLable.innerHTML = allQuestions.questions[j].question;
-				// createForm.appendChild(questionLable);
-				//
-				// var lineBreak = document.createElement('br');
-				// createForm.appendChild(lineBreak);
-				//
-				// var inputElement = document.createElement('input');
-				// inputElement.innerHTML = 'Hello';
-				// inputElement.setAttribute('type', 'radio');
-				// inputElement.setAttribute('name', 'question');
-				// inputElement.setAttribute('value', allQuestions.questions[j].incorrect_answers[0]);
-				// createForm.appendChild(inputElement);
-				//
-				// var lable0 = document.createElement('lable');
-				// lable0.innerHTML = allQuestions.questions[j].incorrect_answers[0];
-				// createForm.appendChild(lable0);
-				// $(inputElement).on('change', function() {
-				// 	lable0.style.color = "red";
-				// });
-				//
-				// var lineBreak = document.createElement('br');
-				// createForm.appendChild(lineBreak);
-				//
-				// var inputElement = document.createElement('input');
-				// inputElement.setAttribute('type', 'radio');
-				// inputElement.setAttribute('name', 'question');
-				// createForm.appendChild(inputElement);
-				//
-				// var lable1 = document.createElement('lable');
-				// lable1.innerHTML = allQuestions.questions[j].incorrect_answers[1];
-				// createForm.appendChild(lable1);
-				// $(inputElement).on('change', function() {
-				// 	lable1.style.color = "red";
-				// });
-				//
-				// var lineBreak = document.createElement('br');
-				// createForm.appendChild(lineBreak);
-				//
-				// var inputElement = document.createElement('input');
-				// inputElement.setAttribute('type', 'radio');
-				// inputElement.setAttribute('name', 'question');
-				// createForm.appendChild(inputElement);
-				//
-				// var lable2 = document.createElement('lable');
-				// lable2.innerHTML = allQuestions.questions[j].incorrect_answers[2];
-				// createForm.appendChild(lable2);
-				// $(inputElement).on('change', function() {
-				// 	lable2.style.color = "red";
-				// });
-				// var lineBreak = document.createElement('br');
-				// createForm.appendChild(lineBreak);
-				//
-				// var inputElement = document.createElement('input');
-				// inputElement.setAttribute('type', 'radio');
-				// inputElement.setAttribute('name', 'question');
-				// createForm.appendChild(inputElement);
-				//
-				// var lable = document.createElement('lable');
-				// lable.innerHTML = allQuestions.questions[j].correct_answer;
-				// createForm.appendChild(lable);
-				// $(inputElement).on('change', function() {
-				// 	lable.style.color = "lightgreen";
-				// 	$("#next-question").removeClass("hidden");
-				// });
-				//
-				// var lineBreak = document.createElement('br');
-				// createForm.appendChild(lineBreak);
-				//
-				// formsArray.form = createForm;
-				//
-				// console.log(formsArray.form);
-				//
-				//
-				//
-				// 	}
-					//
-					// new mapboxgl.Popup()
-					// 		.setLngLat(coordinates)
-					// 		.setDOMContent(createForm)
-					// 		.addTo(map);
-
-
 		});
 
 	}
@@ -424,14 +272,14 @@ $loadQuestion = function(allQuestions, questionNumber, cords){
 
 };
 
-var createFormfunction = function(questionNumber, cords){
-
+var createFormfunction = function(questionNumber, cords, getOutOne){
 	map.on('click', allQuestions.questions[questionNumber]._id, function (e) {
 
 	var j = questionNumber;
 	var createForm = document.createElement('form');
 	createForm.setAttribute('action', '');
 	createForm.setAttribute('method', 'get');
+  $(createForm).addClass(getOutOne);
 
 	var questionLable = document.createElement('lable');
 	questionLable.innerHTML = allQuestions.questions[j].question;
@@ -502,6 +350,39 @@ var createFormfunction = function(questionNumber, cords){
 	var lineBreak = document.createElement('br');
 	createForm.appendChild(lineBreak);
 
+	var timer = document.createElement('div')
+	timer.setAttribute('id', 'time');
+	timer.setAttribute('class', 'seconds');
+	timer.innerHTML = 'endtime';
+
+	console.log(timer);
+
+	function getTimeRemaining(endtime) {
+	  var t = Date.parse(endtime) - Date.parse(new Date());
+	  var seconds = Math.floor((t / 1000) % 60);
+	  return {
+	    'seconds': seconds
+	  };
+	}
+	function initializeClock(id, endtime) {
+	 var clock = id;
+	 //var secondsSpan = clock.querySelector('.seconds');
+	 //console.log(secondsSpan);
+
+	  function updateClock() {
+	    var t = getTimeRemaining(endtime);
+	    clock.innerHTML = ('0' + t.seconds).slice(-2);
+	  }
+	  updateClock();
+	 var timeinterval = setInterval(updateClock, 1000);
+	}
+
+	var deadline = new Date(Date.parse(new Date()) + 15 * 24 * 60 * 60 * 1000);
+
+
+	initializeClock(timer, deadline);
+	createForm.appendChild(timer);
+
 	new mapboxgl.Popup()
 			.setLngLat(cords)
 			.setDOMContent(createForm)
@@ -519,13 +400,15 @@ function handleSuccess(json) {
   $loadQuestion(allQuestions, 0, cords1);
 }
 
+var getOutTwo = "getOutTwo";
+
 $("#next-question").on("click", function(){
 
 	map.flyTo({
 	 center: cords2
 	});
 	map.setLayoutProperty(allQuestions.questions[1]._id, 'visibility', 'visible');
-	createFormfunction(1, cords2);
+	createFormfunction(1, cords2, getOutTwo);
 
 
 })
@@ -539,8 +422,7 @@ $("#wakanda").on("click", function(){
 	map.setLayoutProperty("satellite", 'visibility', 'none');
 	map.setLayoutProperty("background", 'visibility', 'visible');
 
-	map.flyTo({
-			 center: cords3,
+	map.flyTo({ center: cords3,
 			 pitch: 45,
 			 hash: true,
 				bearing: -17.6,
