@@ -171,16 +171,6 @@ db.Question.remove({}, function(err, questions) {
             console.log(err);
             return;
           }
-          // quiz.quiz_category = foundCategory;
-          // else {
-          //   if(quiz.quiz_category = foundCategory) {
-          //
-          //   }
-
-          // }
-
-          // if(quiz.quiz_category = foundCategory)
-          //   quiz.question.push(question)
 
           quiz.save(function(err, savedQuiz) {
             if (err) {
