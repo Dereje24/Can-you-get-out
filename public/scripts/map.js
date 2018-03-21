@@ -155,7 +155,7 @@ $loadQuestion = function(allQuestions, questionNumber, cords){
 									"title": "Tribe 1",
 									"type": "Feature",
 									"properties": {
-										"description",
+										"description": "",
 										"icon": "music"
 									},
 									"geometry": {
@@ -190,7 +190,7 @@ $loadQuestion = function(allQuestions, questionNumber, cords){
 									"title": "Tribe 1",
 									"type": "Feature",
 									"properties": {
-										"description",
+										"description": "",
 										"icon": "music"
 									},
 									"geometry": {
@@ -225,7 +225,7 @@ $loadQuestion = function(allQuestions, questionNumber, cords){
 									"title": "Tribe 1",
 									"type": "Feature",
 									"properties": {
-										"description",
+										"description":"",
 										"icon": "music"
 									},
 									"geometry": {
@@ -248,9 +248,9 @@ $loadQuestion = function(allQuestions, questionNumber, cords){
 
       // When a click event occurs on a feature in the places layer, open a popup at the
   // location of the feature, with description HTML from its properties.
+var getOutOne = "getOutOne";
 
-
-	createFormfunction(questionNumber, cords);
+	createFormfunction(questionNumber, cords, getOutOne);
 
 	for ( var i = 0; i < allQuestions.questions.length; i++)
 	{
@@ -272,14 +272,14 @@ $loadQuestion = function(allQuestions, questionNumber, cords){
 
 };
 
-var createFormfunction = function(questionNumber, cords){
-
+var createFormfunction = function(questionNumber, cords, getOutOne){
 	map.on('click', allQuestions.questions[questionNumber]._id, function (e) {
 
 	var j = questionNumber;
 	var createForm = document.createElement('form');
 	createForm.setAttribute('action', '');
 	createForm.setAttribute('method', 'get');
+  $(createForm).addClass(getOutOne);
 
 	var questionLable = document.createElement('lable');
 	questionLable.innerHTML = allQuestions.questions[j].question;
@@ -350,6 +350,39 @@ var createFormfunction = function(questionNumber, cords){
 	var lineBreak = document.createElement('br');
 	createForm.appendChild(lineBreak);
 
+	var timer = document.createElement('div')
+	timer.setAttribute('id', 'time');
+	timer.setAttribute('class', 'seconds');
+	timer.innerHTML = 'endtime';
+
+	console.log(timer);
+
+	function getTimeRemaining(endtime) {
+	  var t = Date.parse(endtime) - Date.parse(new Date());
+	  var seconds = Math.floor((t / 1000) % 60);
+	  return {
+	    'seconds': seconds
+	  };
+	}
+	function initializeClock(id, endtime) {
+	 var clock = id;
+	 //var secondsSpan = clock.querySelector('.seconds');
+	 //console.log(secondsSpan);
+
+	  function updateClock() {
+	    var t = getTimeRemaining(endtime);
+	    clock.innerHTML = ('0' + t.seconds).slice(-2);
+	  }
+	  updateClock();
+	 var timeinterval = setInterval(updateClock, 1000);
+	}
+
+	var deadline = new Date(Date.parse(new Date()) + 15 * 24 * 60 * 60 * 1000);
+
+
+	initializeClock(timer, deadline);
+	createForm.appendChild(timer);
+
 	new mapboxgl.Popup()
 			.setLngLat(cords)
 			.setDOMContent(createForm)
@@ -367,13 +400,15 @@ function handleSuccess(json) {
   $loadQuestion(allQuestions, 0, cords1);
 }
 
+var getOutTwo = "getOutTwo";
+
 $("#next-question").on("click", function(){
 
 	map.flyTo({
 	 center: cords2
 	});
 	map.setLayoutProperty(allQuestions.questions[1]._id, 'visibility', 'visible');
-	createFormfunction(1, cords2);
+	createFormfunction(1, cords2, getOutTwo);
 
 
 })
@@ -387,8 +422,7 @@ $("#wakanda").on("click", function(){
 	map.setLayoutProperty("satellite", 'visibility', 'none');
 	map.setLayoutProperty("background", 'visibility', 'visible');
 
-	map.flyTo({
-			 center: cords3,
+	map.flyTo({ center: cords3,
 			 pitch: 45,
 			 hash: true,
 				bearing: -17.6,
