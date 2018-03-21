@@ -8,7 +8,6 @@ var QuestionSchema = new Schema({
   question: String,
   correct_answer: String,
   incorrect_answers: Array,
-  //answer_id: -id,
 });
 
 var Question = mongoose.model("Question", QuestionSchema);
