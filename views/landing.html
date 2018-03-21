@@ -58,7 +58,7 @@
 
         <ul class="list-unstyled CTAs">
             <li><a href="https://bootstrapious.com/tutorial/files/sidebar.zip" class="download">Download source</a></li>
-            <li><a href="/quiz" class="article">Start Quiz</a></li>
+            <li><a href="https://bootstrapious.com/p/bootstrap-sidebar" class="article">Back to article</a></li>
         </ul>
     </nav>
 
@@ -77,8 +77,20 @@
                 <!-- Stretch Goals -->
                 <div id="right-sidebar" class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="/quiz">Computer Science Quiz</a></li>
-                        <li><a href="#">Marvel Quiz</a></li>
+                      <div class="pos-f-t">
+                        <div class="collapse" id="navbarToggleExternalContent">
+                          <div class="bg-dark p-4">
+                            <h4 class="text-white">Paths</h4>
+                            <li class="text-muted"><a href="/quiz">Computer Science Quiz</a></li>
+                            <li class="text-muted"><a href="#">Marvel Quiz</a></li>
+                          </div>
+                        </div>
+                        <nav class="navbar navbar-dark bg-dark">
+                          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                          </button>
+                        </nav>
+                      </div>
                     </ul>
                 </div>
             </div>
